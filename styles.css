@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    padding: 2rem;
+}
+
+#projects .project {
+    margin-bottom: 2rem;
+}
+
+.calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.calculator input {
+    grid-column: span 4;
+    padding: 10px;
+    text-align: right;
+    font-size: 1.2rem;
+}
+
+.calculator button {
+    padding: 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}

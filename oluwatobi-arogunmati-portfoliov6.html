@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Tobi Arogunmati — Technology Advisory & Digital Transformation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html{color-scheme:light only}
+:root{
+  color-scheme:light only;
+  --cream:#FBF7EF;
+  --cream-2:#F4EDDF;
+  --ink:#2B1D12;
+  --ink-soft:#54443A;
+  --terracotta:#C05B36;
+  --terracotta-deep:#9E4526;
+  --gold:#C39A4B;
+  --gold-soft:#E4CE9E;
+  --card:#FFFDF8;
+  --line:rgba(43,29,18,.12);
+  --shadow:0 18px 40px -18px rgba(43,29,18,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--gold-soft);color:var(--ink)}
+h1,h2,h3,.serif{font-family:'Playfair Display',serif}
+
+/* ============ LOADING SCREEN ============ */
+#loader{
+  position:fixed;inset:0;z-index:1000;
+  background:var(--cream);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;
+  transition:opacity .8s ease,visibility .8s ease;
+}
+#loader.hidden{opacity:0;visibility:hidden}
+.loader-mark{
+  width:84px;height:84px;border-radius:50%;
+  border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:600;color:var(--terracotta);
+  animation:loaderPulse 1.6s ease-in-out infinite;
+  position:relative;
+}
+.loader-mark::after{
+  content:'';position:absolute;inset:-10px;border-radius:50%;
+  border:1px solid rgba(195,154,75,.35);
+  animation:ringGrow 1.6s ease-out infinite;
+}
+@keyframes loaderPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes ringGrow{0%{transform:scale(.85);opacity:1}100%{transform:scale(1.3);opacity:0}}
+.loader-text{
+  font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--ink-soft);
+  animation:loaderFade 1.6s ease-in-out infinite;
+}
+@keyframes loaderFade{0%,100%{opacity:.35}50%{opacity:1}}
+
+/* ============ PARTICLES ============ */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.particle{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle,rgba(195,154,75,.5),rgba(192,91,54,.15) 70%,transparent);
+  animation:floatUp linear infinite;
+  will-change:transform,opacity;
+}
+@keyframes floatUp{
+  0%{transform:translateY(0) translateX(0);opacity:0}
+  12%{opacity:var(--po,.5)}
+  88%{opacity:var(--po,.5)}
+  100%{transform:translateY(-110vh) translateX(var(--drift,20px));opacity:0}
+}
+
+/* ============ NAV ============ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px clamp(20px,5vw,64px);
+  background:rgba(251,247,239,.85);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .4s ease,box-shadow .4s ease;
+}
+nav.scrolled{border-bottom-color:var(--line);box-shadow:0 6px 24px -18px rgba(43,29,18,.3)}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--ink);text-decoration:none;letter-spacing:.02em}
+.nav-logo em{color:var(--terracotta);font-style:normal}
+.nav-links{display:flex;gap:clamp(14px,2.5vw,34px);list-style:none}
+.nav-links a{
+  text-decoration:none;color:var(--ink-soft);font-size:.82rem;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;position:relative;padding:4px 0;
+  transition:color .3s ease;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:0;width:0;height:1.5px;
+  background:var(--terracotta);transition:width .35s ease;
+}
+.nav-links a:hover{color:var(--terracotta)}
+.nav-links a:hover::after{width:100%}
+#menuBtn{display:none;background:none;border:none;cursor:pointer;padding:6px}
+#menuBtn span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.3s ease;border-radius:2px}
+#menuBtn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+#menuBtn.open span:nth-child(2){opacity:0}
+#menuBtn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ============ LAYOUT ============ */
+main{position:relative;z-index:1}
+section{padding:clamp(72px,10vw,130px) clamp(20px,6vw,80px);max-width:1180px;margin:0 auto}
+.eyebrow{
+  font-size:.72rem;font-weight:600;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--terracotta);display:flex;align-items:center;gap:14px;margin-bottom:18px;
+}
+.eyebrow::before{content:'';width:38px;height:1px;background:var(--gold)}
+.section-title{font-size:clamp(2rem,4.4vw,3.1rem);font-weight:700;line-height:1.12;margin-bottom:14px}
+.section-title em{font-style:italic;color:var(--terracotta)}
+.section-sub{color:var(--ink-soft);max-width:640px;font-size:1rem;margin-bottom:48px}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
+
+/* ============ HERO ============ */
+#hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding-top:120px;position:relative;
+}
+.hero-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:clamp(32px,5vw,72px);align-items:center;width:100%}
+.hero-kicker{
+  font-size:.75rem;font-weight:600;letter-spacing:.42em;text-transform:uppercase;color:var(--ink-soft);
+  margin-bottom:22px;display:flex;align-items:center;gap:14px;
+}
+.hero-kicker::before{content:'';width:46px;height:1px;background:var(--terracotta)}
+.hero-name{
+  font-size:clamp(2.9rem,7.4vw,5.4rem);font-weight:800;line-height:1.04;
+  margin-bottom:8px;position:relative;
+}
+.hero-name .shimmer{
+  background:linear-gradient(100deg,
+    var(--ink) 0%, var(--ink) 38%,
+    var(--terracotta) 46%, var(--gold) 52%, var(--terracotta) 58%,
+    var(--ink) 66%, var(--ink) 100%);
+  background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  animation:shimmerSweep 5.5s ease-in-out infinite;
+}
+@keyframes shimmerSweep{
+  0%{background-position:118% 0}
+  55%{background-position:-40% 0}
+  100%{background-position:-40% 0}
+}
+.hero-name .lastname{display:block;font-style:italic;font-weight:500;color:var(--terracotta);font-size:.62em;letter-spacing:.01em;margin-top:2px}
+.hero-title{
+  font-size:clamp(1rem,1.8vw,1.2rem);font-weight:500;color:var(--ink);
+  margin:20px 0 14px;letter-spacing:.01em;
+}
+.hero-title .dot{color:var(--gold);margin:0 8px}
+.hero-line{color:var(--ink-soft);max-width:560px;font-size:1.02rem;margin-bottom:36px}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 30px;border-radius:999px;font-size:.85rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
+  transition:transform .3s ease,box-shadow .3s ease,background .3s ease,color .3s ease;
+}
+.btn-primary{background:var(--terracotta);color:var(--cream);box-shadow:0 12px 28px -12px rgba(192,91,54,.55)}
+.btn-primary:hover{background:var(--terracotta-deep);transform:translateY(-2px);box-shadow:0 18px 34px -12px rgba(192,91,54,.6)}
+.btn-ghost{border:1px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px)}
+
+/* avatar + pulsing ring */
+.hero-visual{display:flex;justify-content:center}
+.avatar-wrap{position:relative;width:clamp(220px,26vw,300px);aspect-ratio:1}
+.avatar{
+  position:absolute;inset:0;border-radius:50%;
+  background:linear-gradient(145deg,#3A2718,var(--ink) 55%,#1D130B);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold-soft);
+  font-family:'Playfair Display',serif;font-size:clamp(3.4rem,6vw,4.6rem);font-weight:700;
+  letter-spacing:.04em;
+  box-shadow:var(--shadow);
+  z-index:2;
+}
+.avatar small{font-family:'Inter',sans-serif;position:absolute;bottom:20%;font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(228,206,158,.6)}
+.pulse-ring,.pulse-ring-2{
+  position:absolute;inset:-14px;border-radius:50%;
+  border:1.5px solid var(--terracotta);
+  animation:pulseRing 3s ease-out infinite;
+}
+.pulse-ring-2{inset:-14px;border-color:var(--gold);animation-delay:1.5s}
+@keyframes pulseRing{
+  0%{transform:scale(.96);opacity:.85}
+  70%{transform:scale(1.22);opacity:0}
+  100%{transform:scale(1.22);opacity:0}
+}
+.avatar-orbit{
+  position:absolute;inset:-34px;border-radius:50%;
+  border:1px dashed rgba(195,154,75,.5);
+  animation:orbitSpin 26s linear infinite;
+}
+.avatar-orbit::before{
+  content:'';position:absolute;top:-4px;left:50%;width:8px;height:8px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 12px rgba(195,154,75,.8);
+}
+@keyframes orbitSpin{to{transform:rotate(360deg)}}
+
+.hero-stats{
+  display:flex;gap:clamp(24px,4vw,56px);margin-top:56px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:28px;
+}
+.stat b{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.6vw,2rem);font-weight:700;color:var(--terracotta);display:block}
+.stat span{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ============ ABOUT ============ */
+#about .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px)}
+.about-copy p{color:var(--ink-soft);margin-bottom:18px;font-size:1.02rem}
+.about-copy p strong{color:var(--ink);font-weight:600}
+.about-card{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:32px;box-shadow:var(--shadow);align-self:start;
+}
+.about-card h3{font-size:1.2rem;margin-bottom:18px}
+.about-card ul{list-style:none}
+.about-card li{
+  display:flex;gap:12px;align-items:flex-start;padding:11px 0;
+  border-bottom:1px dashed var(--line);font-size:.93rem;color:var(--ink-soft);
+}
+.about-card li:last-child{border-bottom:none}
+.about-card li::before{content:'◆';color:var(--gold);font-size:.6rem;margin-top:7px;flex-shrink:0}
+.about-card li b{color:var(--ink);font-weight:600}
+
+/* ============ SKILLS ============ */
+#skills{background:var(--cream-2);max-width:none}
+#skills .inner{max-width:1180px;margin:0 auto}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px)}
+.skill-block h3{font-size:1.15rem;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.skill-block h3::after{content:'';flex:1;height:1px;background:var(--line)}
+.skill{margin-bottom:22px}
+.skill-head{display:flex;justify-content:space-between;font-size:.88rem;font-weight:500;margin-bottom:8px}
+.skill-head span:last-child{color:var(--terracotta);font-weight:600;font-variant-numeric:tabular-nums}
+.bar{height:7px;background:rgba(43,29,18,.08);border-radius:99px;overflow:hidden}
+.bar-fill{
+  height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--terracotta),var(--gold));
+  transition:width 1.4s cubic-bezier(.22,.61,.36,1);
+  position:relative;
+}
+.bar-fill::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);
+  background-size:200% 100%;
+  animation:barShine 2.6s ease-in-out infinite;
+}
+@keyframes barShine{0%{background-position:180% 0}100%{background-position:-80% 0}}
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.chip{
+  padding:8px 16px;border-radius:999px;font-size:.8rem;font-weight:500;
+  border:1px solid var(--line);background:var(--card);color:var(--ink-soft);
+  transition:border-color .3s ease,color .3s ease,transform .3s ease;
+}
+.chip:hover{border-color:var(--gold);color:var(--terracotta);transform:translateY(-2px)}
+
+/* competency cards */
+.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:60px}
+.comp-card{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 24px;
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.comp-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--gold)}
+.comp-icon{
+  width:46px;height:46px;border-radius:12px;background:rgba(195,154,75,.14);
+  display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:16px;
+}
+.comp-card h4{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:700;margin-bottom:8px}
+.comp-card p{font-size:.87rem;color:var(--ink-soft)}
+
+/* engagement cards (collapsible, inside timeline) */
+.eng{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  margin-bottom:14px;overflow:hidden;max-width:820px;
+  transition:border-color .35s ease,box-shadow .35s ease;
+}
+.eng:hover{box-shadow:var(--shadow)}
+.eng[open]{border-color:var(--gold)}
+.eng summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;
+  padding:18px 20px;flex-wrap:wrap;
+}
+.eng summary::-webkit-details-marker{display:none}
+.badge{
+  font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  padding:5px 11px;border-radius:6px;white-space:nowrap;
+}
+.badge-flight{background:rgba(58,122,79,.1);color:#3A7A4F;border:1px solid rgba(58,122,79,.35)}
+.badge-done{background:rgba(195,154,75,.12);color:#8A6A2C;border:1px solid rgba(195,154,75,.4)}
+.eng-title{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;flex:1;min-width:220px;line-height:1.3}
+.eng-date{font-size:.7rem;letter-spacing:.12em;color:var(--ink-soft);text-transform:uppercase;white-space:nowrap}
+.eng-chev{color:var(--terracotta);font-size:.8rem;transition:transform .3s ease}
+.eng[open] .eng-chev{transform:rotate(180deg)}
+.eng-body{padding:0 20px 20px}
+.eng-kicker{
+  font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--terracotta);margin-bottom:12px;
+}
+.eng-body ul li{font-size:.9rem}
+
+/* ============ EXPERIENCE ============ */
+.timeline{position:relative;margin-top:8px}
+.timeline::before{
+  content:'';position:absolute;left:9px;top:6px;bottom:6px;width:1.5px;
+  background:linear-gradient(var(--gold),var(--terracotta) 60%,transparent);
+}
+.tl-item{position:relative;padding:0 0 44px 46px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{
+  position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;
+  background:var(--cream);border:2px solid var(--terracotta);
+}
+.tl-dot::after{content:'';position:absolute;inset:4px;border-radius:50%;background:var(--gold);opacity:.9}
+.tl-period{font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--terracotta);margin-bottom:6px}
+.tl-role{font-size:1.28rem;font-weight:700;margin-bottom:2px}
+.tl-org{font-size:.92rem;color:var(--ink-soft);font-style:italic;font-family:'Playfair Display',serif;margin-bottom:12px}
+.tl-item p{color:var(--ink-soft);font-size:.95rem;max-width:760px}
+.tl-item ul{margin-top:10px;list-style:none;max-width:760px}
+.tl-item ul li{
+  position:relative;padding-left:20px;color:var(--ink-soft);font-size:.92rem;margin-bottom:7px;
+}
+.tl-item ul li::before{content:'—';position:absolute;left:0;color:var(--gold)}
+
+/* ============ INTERESTS & PASSIONS ============ */
+.dj-card{
+  background:linear-gradient(150deg,#33220F,var(--ink) 60%,#1C1209);
+  border-radius:26px;padding:clamp(36px,5vw,60px);
+  color:var(--cream);position:relative;overflow:hidden;
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,5vw,64px);align-items:center;
+  box-shadow:var(--shadow);
+}
+.dj-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 85% 10%,rgba(195,154,75,.2),transparent 45%),
+             radial-gradient(circle at 8% 95%,rgba(192,91,54,.22),transparent 45%);
+  pointer-events:none;
+}
+.dj-card>*{position:relative}
+.vinyl-wrap{display:flex;justify-content:center}
+.vinyl{
+  width:clamp(180px,22vw,250px);aspect-ratio:1;border-radius:50%;
+  background:
+    repeating-radial-gradient(circle at 50% 50%,
+      #17100A 0px,#17100A 3px,#221710 4px,#221710 6px);
+  box-shadow:0 20px 50px -18px rgba(0,0,0,.65),inset 0 0 40px rgba(0,0,0,.6);
+  position:relative;
+  animation:vinylSpin 6s linear infinite;
+}
+.vinyl::before{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(from 0deg,transparent 0deg,rgba(251,247,239,.07) 40deg,transparent 80deg,transparent 180deg,rgba(251,247,239,.05) 220deg,transparent 260deg);
+}
+.vinyl-label{
+  position:absolute;inset:31%;border-radius:50%;
+  background:radial-gradient(circle,var(--gold) 0%,#A87F35 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--ink);
+}
+.vinyl-label b{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2vw,1.5rem);font-weight:800;letter-spacing:.08em}
+.vinyl-label span{font-size:.5rem;letter-spacing:.32em;text-transform:uppercase;font-weight:600;opacity:.75}
+.vinyl-label::after{
+  content:'';position:absolute;width:9px;height:9px;border-radius:50%;
+  background:var(--ink);top:calc(50% - 4.5px);
+}
+@keyframes vinylSpin{to{transform:rotate(360deg)}}
+.dj-kicker{font-size:.7rem;font-weight:600;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.dj-name{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;line-height:1;margin-bottom:8px}
+.dj-name em{font-style:italic;font-weight:500;color:var(--gold-soft);font-size:.5em;letter-spacing:.02em}
+.dj-desc{color:rgba(251,247,239,.72);font-size:.96rem;max-width:600px;margin-bottom:20px}
+.genre-row{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:24px}
+.genre-chip{
+  padding:7px 16px;border-radius:999px;font-size:.76rem;font-weight:600;letter-spacing:.06em;
+  border:1px solid rgba(195,154,75,.45);color:var(--gold-soft);
+  transition:background .3s ease,color .3s ease,transform .3s ease;
+}
+.genre-chip:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px)}
+.dj-events{font-size:.87rem;color:rgba(251,247,239,.75);margin-bottom:26px;line-height:1.8}
+.dj-events b{color:var(--cream);font-weight:600}
+.dj-events .ev{color:var(--gold-soft)}
+.dj-stats{
+  display:grid;grid-template-columns:repeat(4,auto);gap:20px clamp(20px,3vw,44px);
+  border-top:1px solid rgba(251,247,239,.15);padding-top:24px;width:fit-content;
+}
+.dj-stats div b{font-family:'Playfair Display',serif;font-size:clamp(1.25rem,2.2vw,1.7rem);font-weight:700;color:var(--gold);display:block}
+.dj-stats div span{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(251,247,239,.6)}
+.interest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+.interest-card{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.interest-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--gold)}
+.interest-icon{font-size:1.5rem;margin-bottom:12px;display:block}
+.interest-card h4{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:700;margin-bottom:8px}
+.interest-card p{font-size:.86rem;color:var(--ink-soft)}
+.mini-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.mini-chips span{
+  font-size:.68rem;font-weight:500;padding:4px 10px;border-radius:999px;
+  background:rgba(192,91,54,.08);color:var(--terracotta-deep);
+}
+
+/* ============ CONTACT ============ */
+#contact{text-align:center}
+.contact-card{
+  background:linear-gradient(150deg,#33220F,var(--ink) 60%,#1C1209);
+  border-radius:26px;padding:clamp(44px,7vw,84px) clamp(24px,6vw,80px);
+  color:var(--cream);position:relative;overflow:hidden;
+}
+.contact-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 80% 15%,rgba(195,154,75,.22),transparent 45%),
+             radial-gradient(circle at 12% 90%,rgba(192,91,54,.2),transparent 45%);
+}
+.contact-card>*{position:relative}
+.contact-card .eyebrow{justify-content:center;color:var(--gold)}
+.contact-card .eyebrow::before{background:var(--gold)}
+.contact-card h2{font-size:clamp(1.9rem,4.2vw,3rem);margin-bottom:16px}
+.contact-card h2 em{font-style:italic;color:var(--gold-soft)}
+.contact-card p{color:rgba(251,247,239,.72);max-width:520px;margin:0 auto 36px;font-size:1rem}
+.contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:34px}
+.contact-links .btn-primary{background:var(--gold);color:var(--ink);box-shadow:0 12px 28px -12px rgba(195,154,75,.5)}
+.contact-links .btn-primary:hover{background:var(--gold-soft)}
+.contact-links .btn-ghost{border-color:rgba(251,247,239,.4);color:var(--cream)}
+.contact-links .btn-ghost:hover{background:var(--cream);color:var(--ink)}
+.contact-meta{display:flex;justify-content:center;gap:clamp(18px,4vw,44px);flex-wrap:wrap;font-size:.85rem;color:rgba(251,247,239,.65)}
+.contact-meta a{color:var(--gold-soft);text-decoration:none;transition:color .3s ease}
+.contact-meta a:hover{color:var(--cream)}
+
+footer{
+  text-align:center;padding:34px 20px;font-size:.78rem;color:var(--ink-soft);
+  border-top:1px solid var(--line);position:relative;z-index:1;letter-spacing:.06em;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:900px){
+  .hero-grid,#about .about-grid,.skills-grid,.proj-grid{grid-template-columns:1fr}
+  .dj-card{grid-template-columns:1fr;text-align:center}
+  .dj-desc{margin-left:auto;margin-right:auto}
+  .genre-row,.dj-stats{justify-content:center}
+  .dj-stats{grid-template-columns:repeat(2,auto);margin:0 auto;width:fit-content}
+  .interest-grid{grid-template-columns:repeat(2,1fr)}
+  .comp-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-visual{order:-1;margin-bottom:8px}
+  .avatar-wrap{width:min(210px,58vw)}
+  #hero{padding-top:110px}
+}
+@media (max-width:600px){
+  .interest-grid{grid-template-columns:1fr}
+  .comp-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  #menuBtn{display:block;z-index:110}
+  .nav-links{
+    position:fixed;top:0;right:0;height:100vh;width:min(76vw,300px);
+    background:var(--cream);flex-direction:column;padding:100px 36px 40px;gap:26px;
+    transform:translateX(100%);transition:transform .4s cubic-bezier(.22,.61,.36,1);
+    box-shadow:-20px 0 50px rgba(43,29,18,.15);
+  }
+  .nav-links.open{transform:translateX(0)}
+  .nav-links a{font-size:1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.2s !important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <div class="loader-mark">TA</div>
+  <div class="loader-text">Loading Portfolio</div>
+</div>
+
+<!-- FLOATING PARTICLES -->
+<div id="particles"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">T<em>.</em>Arogunmati</a>
+  <button id="menuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#passions">Passions</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section id="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-kicker reveal">Lagos, Nigeria — Technology Advisory</div>
+      <h1 class="hero-name reveal d1">
+        <span class="shimmer">Tobi</span>
+        <span class="lastname">Arogunmati</span>
+      </h1>
+      <div class="hero-title reveal d2">
+        Project Management<span class="dot">•</span>Digital Transformation<span class="dot">•</span>Technology Advisory &amp; Strategy
+      </div>
+      <p class="hero-line reveal d3">
+        I manage strategic projects and lead cross functional teams through enterprise transformation, from strategy and product thinking to clean delivery. With a strong grasp of the startup and technology landscape, I thrive at the intersection of innovation, strategy, and execution.
+      </p>
+      <div class="hero-cta reveal d4">
+        <a href="#experience" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      </div>
+      <div class="hero-stats reveal d4">
+        <div class="stat"><b>9+</b><span>Years Experience</span></div>
+        <div class="stat"><b>$10M+</b><span>Programme Value Directed</span></div>
+        <div class="stat"><b>200+</b><span>Applications Integrated</span></div>
+        <div class="stat"><b>5</b><span>Financial Institutions</span></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal d2">
+      <div class="avatar-wrap">
+        <div class="avatar-orbit"></div>
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring-2"></div>
+        <div class="avatar">TA<small>KPMG · Advisory</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="eyebrow reveal">01 — About Me</div>
+  <h2 class="section-title reveal d1">Consulting discipline,<br><em>banking-floor grounding.</em></h2>
+  <div class="about-grid">
+    <div class="about-copy">
+      <p class="reveal d1">I'm a technology advisory consultant with <strong>9 years' professional experience</strong>, including 5 years driving digital transformation across financial institutions at <strong>KPMG Nigeria</strong>, where I've progressed from Experienced Analyst to <strong>Assistant Manager</strong>.</p>
+      <p class="reveal d2">I've delivered core banking (Oracle FLEXCUBE, Temenos Transact), treasury (Calypso), lending, and trade platforms across <strong>5 Nigerian and Central African financial institutions</strong> — from requirements and vendor selection through go-live and stabilisation. Along the way I've led the integration of <strong>200+ enterprise applications</strong> and directed system integrators and OEM selection on programmes totalling <strong>$10M+</strong>, advising stakeholders from project teams to board level.</p>
+      <p class="reveal d3">What sets my work apart is the combination of consulting delivery discipline with hands-on banking domain grounding from my years in <strong>corporate banking at GTBank</strong> — I've sat on both sides of the table, so I speak both languages fluently.</p>
+    </div>
+    <div class="about-card reveal d2">
+      <h3>At a Glance</h3>
+      <ul>
+        <li><span><b>Assistant Manager</b>, Technology Advisory — KPMG Nigeria</span></li>
+        <li><span><b>5 financial institutions</b> served across Nigeria &amp; Central Africa</span></li>
+        <li><span><b>200+ enterprise applications</b> integrated through core banking cutover</span></li>
+        <li><span><b>$10M+</b> in transformation programmes directed</span></li>
+        <li><span><b>Corporate banking grounding</b> — relationship management at GTBank</span></li>
+        <li><span><b>ITIL® Foundation</b> certified · B.Sc. Industrial Physics, Covenant University</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="inner">
+    <div class="eyebrow reveal">02 — Skills</div>
+    <h2 class="section-title reveal d1">The toolkit behind <em>the delivery.</em></h2>
+    <p class="section-sub reveal d2">What I bring to the table — and the platforms and tools I bring it with.</p>
+    <div class="comp-grid">
+      <div class="comp-card reveal d1"><div class="comp-icon">📊</div><h4>Enterprise Digital Transformation</h4><p>Large-scale programmes that modernise operations end-to-end: replacing legacy platforms, re-architecting application and integration landscapes, and aligning people, process, and technology from strategy through go-live.</p></div>
+      <div class="comp-card reveal d2"><div class="comp-icon">🏦</div><h4>Banking Operations Expertise</h4><p>Deep Tier 1 functional knowledge spanning lending and credit, international trade finance, treasury and money markets, account and product configuration, cards, and digital payments.</p></div>
+      <div class="comp-card reveal d3"><div class="comp-icon">🧭</div><h4>Technology Advisory &amp; Strategy</h4><p>Data, digital, and technology strategies aligned with organisational objectives — built to move real business metrics, not sit on a shelf.</p></div>
+      <div class="comp-card reveal d1"><div class="comp-icon">🤝</div><h4>Vendor &amp; SI Management</h4><p>Vendor selection, RFP design, and coordination of system integrators and technical vendors across complex, multi-party delivery environments.</p></div>
+      <div class="comp-card reveal d2"><div class="comp-icon">✅</div><h4>QA &amp; UAT Management</h4><p>Leading UAT and SIT cycles, managing defect resolution, and providing independent QA oversight of system-integrator deliverables.</p></div>
+      <div class="comp-card reveal d3"><div class="comp-icon">📋</div><h4>Requirements &amp; Business Analysis</h4><p>Requirements elicitation, gap analysis, and RTM traceability — translating complex business needs into precise technical specifications.</p></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-block reveal d1">
+        <h3>Banking Platforms</h3>
+        <div class="skill"><div class="skill-head"><span>Calypso (Treasury)</span><span>95%</span></div><div class="bar"><div class="bar-fill" data-w="95"></div></div></div>
+        <div class="skill"><div class="skill-head"><span>Oracle FLEXCUBE</span><span>92%</span></div><div class="bar"><div class="bar-fill" data-w="92"></div></div></div>
+        <div class="skill"><div class="skill-head"><span>Temenos Transact &amp; Digital</span><span>88%</span></div><div class="bar"><div class="bar-fill" data-w="88"></div></div></div>
+        <div class="skill"><div class="skill-head"><span>Finacle</span><span>82%</span></div><div class="bar"><div class="bar-fill" data-w="82"></div></div></div>
+        <div class="skill"><div class="skill-head"><span>Finacle Treasury</span><span>80%</span></div><div class="bar"><div class="bar-fill" data-w="80"></div></div></div>
+        <div class="skill"><div class="skill-head"><span>Oracle Lending · Kastle · Oracle Trade · Phoenix</span><span>80%</span></div><div class="bar"><div class="bar-fill" data-w="80"></div></div></div>
+      </div>
+      <div class="skill-block reveal d2">
+        <h3>Delivery &amp; Programme Tools</h3>
+        <div class="skill"><div class="skill-head"><span>Jira &amp; Confluence</span><span>93%</span></div><div class="bar"><div class="bar-fill" data-w="93"></div></div></div>
+        <div class="skill"><div class="skill-head"><span>MS Project</span><span>90%</span></div><div class="bar"><div class="bar-fill" data-w="90"></div></div></div>
+        <div class="skill"><div class="skill-head"><span>Azure Test Plans</span><span>88%</span></div><div class="bar"><div class="bar-fill" data-w="88"></div></div></div>
+        <div class="skill"><div class="skill-head"><span>Power BI · Excel · PowerPoint</span><span>90%</span></div><div class="bar"><div class="bar-fill" data-w="90"></div></div></div>
+        <div class="skill"><div class="skill-head"><span>PractiTest · Mantis · JMeter · Postman</span><span>85%</span></div><div class="bar"><div class="bar-fill" data-w="85"></div></div></div>
+        <div class="skill"><div class="skill-head"><span>Wrike</span><span>84%</span></div><div class="bar"><div class="bar-fill" data-w="84"></div></div></div>
+      </div>
+    </div>
+    <div class="skill-block reveal d3" style="margin-top:44px">
+      <h3>Education &amp; Credentials</h3>
+      <div class="chip-row">
+        <span class="chip">B.Sc. Industrial Physics — Covenant University</span>
+        <span class="chip">ITIL® Foundation in IT Service Management — AXELOS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience">
+  <div class="eyebrow reveal">03 — Experience</div>
+  <h2 class="section-title reveal d1">A career built across <em>both sides of banking.</em></h2>
+  <p class="section-sub reveal d2">From business development and relationship management in corporate banking to leading the transformation programmes that rebuild the industry.</p>
+
+  <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Oct 2021 — Present</div>
+      <div class="tl-role">Technology Advisory · Experienced Analyst → Assistant Manager</div>
+      <div class="tl-org">KPMG Nigeria — Operations &amp; IT Enablement · Lagos</div>
+      <p>Driving digital transformation across financial institutions in Nigeria and Central Africa — leading core banking, treasury, network, and infrastructure programmes end-to-end. Tap any engagement for the full story.</p>
+
+      <details class="eng reveal">
+        <summary><span class="badge badge-flight">In Flight</span><span class="eng-title">Archer Bank (Congo) — Greenfield Core Banking (Temenos)</span><span class="eng-date">Nov 2025 →</span><span class="eng-chev">▼</span></summary>
+        <div class="eng-body">
+          <div class="eng-kicker">Team Lead, Implementation PM &amp; QA · Assistant Manager · 50+ Resources · 3 Organisations · 10-Month Runway</div>
+          <ul>
+            <li>Leading the functional and integration workstream on a greenfield Temenos Transact &amp; Digital implementation for a new bank building its systems and operations from zero — KPMG as project manager alongside integrator ITSS, while the bank pursues regulatory approvals.</li>
+            <li>Coordinating 50+ resources across three organisations (5 KPMG, 15+ integrator, 30+ bank) over a 10-month timeline to first go-live.</li>
+            <li>Coordinating requirements-gathering sessions, solution demos, and workshops, and leading review, training, and sign-off on key project documents across workstreams.</li>
+            <li>Coordinated development of 3,000+ UAT test cases across 11 modules and 19 priority applications — payments, RTGS, remittances, reconciliation, regulatory reporting, AML, market data, statements, SMS notifications, card clearing, and cheque management — from a total scope of 38 applications.</li>
+            <li>Leading integration alignment across infrastructure and interfacing workstreams to drive end-to-end readiness ahead of go-live.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="eng reveal">
+        <summary><span class="badge badge-done">Delivered</span><span class="eng-title">Fidelity Bank — Network Infrastructure Refresh</span><span class="eng-date">Jul – Oct 2025</span><span class="eng-chev">▼</span></summary>
+        <div class="eng-body">
+          <div class="eng-kicker">Project Management Lead · Experienced Senior · Tier 1 Bank · Primary + DR Sites</div>
+          <ul>
+            <li>Led the phase-out and replacement of 10 out-of-warranty, end-of-life leaf and border switches across primary and DR sites — eliminating unsupported hardware and its security vulnerabilities while restoring full vendor support coverage.</li>
+            <li>Directed a 4-person KPMG team coordinating 5 Huawei engineers and 10+ Fidelity resources, sequencing cutovers over weekend maintenance windows to minimise impact.</li>
+            <li>Completed the 4-month refresh with near-zero operational disruption to core banking network services across both sites.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="eng reveal">
+        <summary><span class="badge badge-done">Delivered</span><span class="eng-title">Fidelity Bank — Database Infrastructure OEM Selection</span><span class="eng-date">Mar – Oct 2025</span><span class="eng-chev">▼</span></summary>
+        <div class="eng-body">
+          <div class="eng-kicker">Project Lead, System Selection &amp; RFP · Senior Associate · $3M+ Decision · 3 Global OEMs</div>
+          <ul>
+            <li>Led the system selection and RFP process for the database infrastructure powering Fidelity's Finacle 11 core banking upgrade — a $3M+ decision evaluating Oracle, Dell, and HP over 3 months.</li>
+            <li>Designed and ran a 3-phase evaluation framework: scoring written proposals, vendor presentations, and reference checks (3 references interviewed per OEM) against cost, functionality, and the bank's strategic objectives.</li>
+            <li>Delivered the recommendation that informed the bank's award to the selected vendor, directly enabling progression to the full implementation phase.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="eng reveal">
+        <summary><span class="badge badge-done">Delivered</span><span class="eng-title">Zenith Bank — Core Banking &amp; Six-Application Transformation</span><span class="eng-date">Aug 2023 – Feb 2025</span><span class="eng-chev">▼</span></summary>
+        <div class="eng-body">
+          <div class="eng-kicker">Integration &amp; Application Workstream Lead · Senior Associate → Experienced Senior · $5M+ Programme · 100+ Resources</div>
+          <ul>
+            <li>Led the integration and applications workstream on a $5M+ enterprise transformation migrating Zenith Bank from Phoenix to Oracle FLEXCUBE — one of 6 concurrent enterprise platform implementations spanning core banking, treasury, lending, and trade.</li>
+            <li>Owned integration and refactoring of the bank's 200+ internal applications, middleware, and services — rebuilding 5 business-critical applications covering payments, workflows, and approvals, and reconnecting legacy database links to the new core.</li>
+            <li>Safeguarded continuity for 20M+ customer accounts across 390 branches and all customer channels (USSD, internet banking, mobile banking, payment gateways, third-party integrations) through core banking cutover.</li>
+            <li>Delivered concurrent implementation of Oracle Lending, Kastle Lending, Calypso, Oracle Trade, and a new Enterprise Service Bus into the new core environment.</li>
+            <li>Directed a 2-person KPMG integration team coordinating 5 development-team PMs alongside DevOps, security, QA, and business analysts, plus 20+ departmental users — and supported training of 200+ bank staff.</li>
+            <li>Drove core banking go-live in August 2024, then led defect resolution, stabilisation, and supplementary module delivery through February 2025.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="eng reveal">
+        <summary><span class="badge badge-done">Delivered</span><span class="eng-title">First Bank of Nigeria — Treasury Implementation (Calypso)</span><span class="eng-date">Oct 2021 – Aug 2023</span><span class="eng-chev">▼</span></summary>
+        <div class="eng-body">
+          <div class="eng-kicker">Functional &amp; Data Workstream · Experienced Analyst → Associate · ~$2.5B Portfolio Migrated · 22-Month Programme</div>
+          <ul>
+            <li>Delivered the functional and data workstream of a Calypso treasury implementation for one of Nigeria's largest banks — migrating from Finacle Treasury to Calypso across 10 cross-functional units, with KPMG as project manager and QA lead alongside integrator Seaico.</li>
+            <li>Achieved 97% data accuracy migrating a ~$2.5B treasury portfolio (FX trades, money market securities, bonds and treasury bills, borrowings, placements, Eurobonds) by architecting ETL validation protocols and leading resolution of 50+ critical defects across 13,000+ trade records.</li>
+            <li>Drove UAT to a 97% pass rate across 500+ test cases — facilitating defect-management sessions, coordinating testing across Treasury, Risk, IT, and Finance, and administering the Azure test tool.</li>
+            <li>Stepped up as Calypso SME during vendor-availability gaps, guiding end users and unblocking UAT execution to keep testing on schedule.</li>
+            <li>Enabled 100% trader self-sufficiency at go-live via Train-the-Trainer curricula and process-impact assessments for 30+ treasury users across 6 business departments.</li>
+            <li>Configured requirements for new products (Precious Metals, Commodity OTC) with zero requirement gaps in the RTM — contributing to a clean go-live with zero rollback.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Aug 2018 — Mar 2021</div>
+      <div class="tl-role">Relationship Manager, Corporate Banking</div>
+      <div class="tl-org">Guaranty Trust Bank (GTBank) Plc · Lagos</div>
+      <ul>
+        <li>Managed a mid-to-large corporate portfolio of 1,000+ clients (avg. balance sheet NGN 5B), originating NGN 200B+ in credit facilities over 3 years — with zero defaults.</li>
+        <li>Grew the team's deposit liability base by 43% through expanded payment and collection channels.</li>
+        <li>Facilitated $72M+ in Letters of Credit and trade finance instruments for manufacturing clients.</li>
+        <li>Managed a 30+ merchant POS portfolio generating $200K+ in monthly turnover.</li>
+      </ul>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Mar 2017 — Dec 2017</div>
+      <div class="tl-role">IT Support Specialist</div>
+      <div class="tl-org">Ecomarine Terminals Limited · Lagos</div>
+      <ul>
+        <li>Provided end-user technical support across software, hardware, and network systems for marine terminal operations.</li>
+        <li>Built budget and forecast templates in Excel, maintained security camera systems, and managed the company database.</li>
+      </ul>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Jan 2015 — Jun 2015</div>
+      <div class="tl-role">IT Services &amp; Operations Intern</div>
+      <div class="tl-org">Shell Nigeria Exploration &amp; Production Company (SNEPCo) · Lagos</div>
+      <ul>
+        <li>Delivered desktop and remote support across Windows, Linux, and Mac environments — including offshore users.</li>
+        <li>Coordinated hardware/software installations and maintained the IT infrastructure inventory.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERESTS & PASSIONS ============ -->
+<section id="passions">
+  <div class="eyebrow reveal">04 — Interests &amp; Passions</div>
+  <h2 class="section-title reveal d1">When the laptop closes, <em>the decks open.</em></h2>
+  <p class="section-sub reveal d2">The same instincts that run transformation programmes — building, organising, curating — show up after hours too.</p>
+
+  <div class="dj-card reveal d1">
+    <div class="vinyl-wrap">
+      <div class="vinyl">
+        <div class="vinyl-label"><b>SORA</b><span>On Deck</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="dj-kicker">DJ · Event Founder · Since 2024</div>
+      <div class="dj-name">Sora <em>— behind the decks</em></div>
+      <p class="dj-desc">DJ and events entrepreneur in Lagos — spinning house-driven sets and building the rooms they're played in, from co-founded event brands to residencies and guest slots across the city's scene.</p>
+      <div class="genre-row">
+        <span class="genre-chip">House</span>
+        <span class="genre-chip">EDM</span>
+        <span class="genre-chip">Afro-House</span>
+        <span class="genre-chip">Afro Tech</span>
+        <span class="genre-chip">GQOM</span>
+      </div>
+      <div class="dj-events">
+        <b>Co-founded:</b> <span class="ev">Collision · Sage's House · Justice for January Babies</span><br>
+        <b>Resident DJ:</b> <span class="ev">TSL</span><br>
+        <b>Also played:</b> <span class="ev">Catching Waves · TMC (Till Mama Calls) · Tripple G · Zen House · All Black Party 2.0 · ECHO · MLT (Moments Like This)</span>
+      </div>
+      <div class="dj-stats">
+        <div><b>15+</b><span>Events DJed</span></div>
+        <div><b>10</b><span>Events Organised</span></div>
+        <div><b>3</b><span>Events Co-founded</span></div>
+        <div><b>1000+</b><span>Attendees</span></div>
+        <div><b>NGN 10M+</b><span>Event Revenue</span></div>
+        <div><b>8</b><span>Venue Partners</span></div>
+        <div><b>5</b><span>Sponsors</span></div>
+        <div><b>2024</b><span>Journey Began</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="interest-grid">
+    <div class="interest-card reveal d1">
+      <span class="interest-icon">🎬</span>
+      <h4>Film &amp; Series Obsessive</h4>
+      <p>1000+ movies and TV series watched — and counting.</p>
+      <div class="mini-chips">
+        <span>Sci-Fi</span><span>Fantasy</span><span>Adventure</span><span>Spy</span><span>Thriller</span><span>Horror</span><span>Drama</span><span>Anime</span><span>Animation</span>
+      </div>
+    </div>
+    <div class="interest-card reveal d2">
+      <span class="interest-icon">✍🏾</span>
+      <h4>Writing</h4>
+      <p>Putting ideas on paper — from long-form thinking to sharp, structured storytelling.</p>
+    </div>
+    <div class="interest-card reveal d3">
+      <span class="interest-icon">🌍</span>
+      <h4>Geopolitics</h4>
+      <p>Following the forces that shape markets, policy, and power across the world.</p>
+    </div>
+    <div class="interest-card reveal d1">
+      <span class="interest-icon">🚀</span>
+      <h4>Startups, Business &amp; Strategy</h4>
+      <p>Fascinated by how ventures are built, scaled, and steered — on paper and in practice.</p>
+    </div>
+    <div class="interest-card reveal d2">
+      <span class="interest-icon">💡</span>
+      <h4>Technology &amp; Innovation</h4>
+      <p>Tracking what's next — and how new tools reshape industries and everyday life.</p>
+    </div>
+    <div class="interest-card reveal d3">
+      <span class="interest-icon">🎨</span>
+      <h4>Creative Direction</h4>
+      <p>Shaping the look, feel, and story of experiences — from event brands to visual identity.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="contact-card reveal">
+    <div class="eyebrow">05 — Contact</div>
+    <h2>Let's build <em>what's next.</em></h2>
+    <p>Whether it's a transformation programme, a platform implementation, or a technology strategy conversation — I'd love to hear from you.</p>
+    <div class="contact-links">
+      <a href="mailto:tobiarogunmati@gmail.com" class="btn btn-primary">Email Me</a>
+      <a href="https://www.linkedin.com/in/tobi-arogunmati-3181a5b8/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+    </div>
+    <div class="contact-meta">
+      <span>📍 Lagos, Nigeria</span>
+      <a href="mailto:tobiarogunmati@gmail.com">tobiarogunmati@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>© 2026 Tobi Arogunmati · Designed with warmth in Lagos</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- Loading screen ---------- */
+  window.addEventListener('load',function(){
+    setTimeout(function(){
+      document.getElementById('loader').classList.add('hidden');
+    },900);
+  });
+  /* Fallback in case load event stalls (e.g. slow font fetch) */
+  setTimeout(function(){
+    document.getElementById('loader').classList.add('hidden');
+  },3500);
+
+  /* ---------- Floating particles ---------- */
+  var pWrap=document.getElementById('particles');
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced){
+    var count=window.innerWidth<700?14:26;
+    for(var i=0;i<count;i++){
+      var p=document.createElement('div');
+      p.className='particle';
+      var size=Math.random()*5+2;
+      p.style.width=size+'px';
+      p.style.height=size+'px';
+      p.style.left=Math.random()*100+'vw';
+      p.style.top=(60+Math.random()*50)+'vh';
+      p.style.setProperty('--po',(Math.random()*0.35+0.2).toFixed(2));
+      p.style.setProperty('--drift',(Math.random()*80-40).toFixed(0)+'px');
+      p.style.animationDuration=(Math.random()*22+16)+'s';
+      p.style.animationDelay=(-Math.random()*30)+'s';
+      pWrap.appendChild(p);
+    }
+  }
+
+  /* ---------- Nav: scrolled state ---------- */
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){
+    nav.classList.toggle('scrolled',window.scrollY>30);
+  },{passive:true});
+
+  /* ---------- Mobile menu ---------- */
+  var btn=document.getElementById('menuBtn');
+  var links=document.getElementById('navLinks');
+  btn.addEventListener('click',function(){
+    btn.classList.toggle('open');
+    links.classList.toggle('open');
+  });
+  links.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){
+      btn.classList.remove('open');
+      links.classList.remove('open');
+    }
+  });
+
+  /* ---------- Scroll reveal (IntersectionObserver) ---------- */
+  var revealObserver=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){revealObserver.observe(el);});
+
+  /* ---------- Skill bars: animate only when in view ---------- */
+  var barObserver=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var fill=entry.target;
+        requestAnimationFrame(function(){
+          fill.style.width=fill.getAttribute('data-w')+'%';
+        });
+        barObserver.unobserve(fill);
+      }
+    });
+  },{threshold:0.4});
+  document.querySelectorAll('.bar-fill').forEach(function(el){barObserver.observe(el);});
+
+  /* ---------- Smooth scroll with nav offset ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var target=document.querySelector(a.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        var y=target.getBoundingClientRect().top+window.scrollY-70;
+        window.scrollTo({top:y,behavior:reduced?'auto':'smooth'});
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Allowlist: ignore everything, then re-include only the deployed site files.
+/*
+!/logos/
+!/index.html
+!/delphi-card.png
+!/social-card.png
+!/favicon.svg
+!/robots.txt
+!/sitemap.xml
+!/CNAME
+!/.gitignore
+!/README.md

@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only light">
+<meta name="theme-color" content="#FBF7EF">
+<title>Tobi Arogunmati — Technical Project Management &amp; Product Engineering</title>
+<meta name="description" content="Technical project manager with 9+ years bridging corporate banking and technology delivery — leading core banking, treasury, and digital transformation programmes across Nigeria and Central Africa, and building full-stack products through agentic product engineering.">
+<link rel="canonical" href="https://tobiarogunmati.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tobiarogunmati.com/">
+<meta property="og:title" content="Tobi Arogunmati — Technical Project Management &amp; Product Engineering">
+<meta property="og:description" content="9+ years bridging corporate banking and technology delivery — enterprise transformation programmes across financial institutions, and full-stack products built through agentic product engineering.">
+<meta property="og:image" content="https://tobiarogunmati.com/social-card.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tobi Arogunmati — Technical Project Management & Product Engineering">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tobi Arogunmati — Technical Project Management &amp; Product Engineering">
+<meta name="twitter:description" content="9+ years bridging corporate banking and technology delivery — enterprise transformation programmes, and full-stack products built through agentic engineering.">
+<meta name="twitter:image" content="https://tobiarogunmati.com/social-card.png">
+<meta name="twitter:image:alt" content="Tobi Arogunmati — Technical Project Manager, Product Manager, Agentic Product Engineer">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Oluwatobi Arogunmati",
+  "alternateName": "Tobi Arogunmati",
+  "jobTitle": "Technical Project Manager · Product Manager · Agentic Product Engineer",
+  "url": "https://tobiarogunmati.com/",
+  "email": "mailto:him@tobiarogunmati.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Lagos", "addressCountry": "NG" },
+  "worksFor": { "@type": "Organization", "name": "KPMG Nigeria" },
+  "sameAs": [
+    "https://www.linkedin.com/in/tobiarogunmati/",
+    "https://delphiatlas.com"
+  ],
+  "knowsAbout": ["Core Banking Transformation", "Treasury Systems", "Quality Assurance", "Product Engineering", "Agentic AI Development"]
+}
+</script>
+<style>
+html{color-scheme:only light}
+:root{
+  color-scheme:only light;
+  --cream:#FBF7EF;
+  --cream-2:#F4EDDF;
+  --ink:#2B1D12;
+  --ink-soft:#54443A;
+  --terracotta:#C05B36;
+  --terracotta-deep:#9E4526;
+  --terracotta-deeper:#83381D;
+  --gold:#C39A4B;
+  --gold-soft:#E4CE9E;
+  --gold-deep:#8a6a24;
+  --card:#FFFDF8;
+  --line:rgba(43,29,18,.12);
+  --shadow:0 18px 40px -18px rgba(43,29,18,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--gold-soft);color:var(--ink)}
+h1,h2,h3,.serif{font-family:'Playfair Display',serif}
+h1,h2,.section-title,.hero-name,.dj-name,.project-name,.contact-card h2{text-wrap:balance}
+
+/* focus + skip link */
+a:focus-visible,button:focus-visible,summary:focus-visible,details:focus-visible,.chip:focus-visible{
+  outline:2px solid var(--terracotta-deep);outline-offset:3px;border-radius:6px;
+}
+.skip-link{
+  position:fixed;top:-60px;left:16px;z-index:2000;
+  background:var(--ink);color:var(--cream);padding:10px 18px;border-radius:8px;
+  font-size:.82rem;font-weight:600;letter-spacing:.04em;text-decoration:none;
+  transition:top .25s ease;
+}
+.skip-link:focus{top:14px}
+section[id]{scroll-margin-top:84px}
+
+/* shared icon sizing */
+.ic,.logo{display:inline-block;vertical-align:middle;flex:none}
+
+/* ============ LOADING SCREEN ============ */
+#loader{
+  position:fixed;inset:0;z-index:1000;
+  background:var(--cream);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;
+  transition:opacity .8s ease,visibility .8s ease;
+}
+#loader.hidden{opacity:0;visibility:hidden}
+.loader-mark{
+  width:84px;height:84px;border-radius:50%;
+  border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:600;color:var(--terracotta-deep);
+  animation:loaderPulse 1.6s ease-in-out infinite;
+  position:relative;
+}
+.loader-mark::after{
+  content:'';position:absolute;inset:-10px;border-radius:50%;
+  border:1px solid rgba(195,154,75,.35);
+  animation:ringGrow 1.6s ease-out infinite;
+}
+@keyframes loaderPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes ringGrow{0%{transform:scale(.85);opacity:1}100%{transform:scale(1.3);opacity:0}}
+.loader-text{
+  font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--ink-soft);
+  animation:loaderFade 1.6s ease-in-out infinite;
+}
+@keyframes loaderFade{0%,100%{opacity:.35}50%{opacity:1}}
+
+/* ============ PARTICLES ============ */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.particle{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle,rgba(195,154,75,.5),rgba(192,91,54,.15) 70%,transparent);
+  animation:floatUp linear infinite;
+  will-change:transform,opacity;
+}
+@keyframes floatUp{
+  0%{transform:translateY(0) translateX(0);opacity:0}
+  12%{opacity:var(--po,.5)}
+  88%{opacity:var(--po,.5)}
+  100%{transform:translateY(-110vh) translateX(var(--drift,20px));opacity:0}
+}
+
+/* ============ NAV ============ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:center;
+  padding:18px clamp(20px,5vw,64px);
+  background:rgba(251,247,239,.85);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .4s ease,box-shadow .4s ease;
+}
+nav.scrolled{border-bottom-color:var(--line);box-shadow:0 6px 24px -18px rgba(43,29,18,.3)}
+.nav-links{
+  display:flex;align-items:center;gap:clamp(10px,2vw,22px);list-style:none;
+  background:rgba(255,253,248,.72);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:7px clamp(10px,1.6vw,16px);
+}
+.nav-sora-sep{width:1px;height:18px;background:var(--line);flex:none}
+.nav-links li.nav-sora a{
+  color:var(--gold-deep,#8a6a24);
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-weight:600;
+  text-transform:none;letter-spacing:.04em;font-size:.92rem;
+  padding:4px 12px;border-radius:999px;
+  transition:background .3s ease,color .3s ease;
+}
+.nav-links li.nav-sora a::after{display:none}
+.nav-links li.nav-sora a:hover{background:var(--ink);color:var(--gold-soft)}
+.nav-links a{
+  text-decoration:none;color:var(--ink-soft);font-size:.82rem;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;position:relative;padding:4px 0;
+  transition:color .3s ease;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:0;width:100%;height:1.5px;
+  background:var(--terracotta-deep);transform:scaleX(0);transform-origin:left;
+  transition:transform .35s ease;
+}
+.nav-links a:hover{color:var(--terracotta-deep)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--terracotta-deep)}
+#menuBtn{display:none;background:none;border:none;cursor:pointer;padding:6px}
+#menuBtn span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.3s ease;border-radius:2px}
+#menuBtn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+#menuBtn.open span:nth-child(2){opacity:0}
+#menuBtn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ============ LAYOUT ============ */
+main{position:relative;z-index:1}
+section{padding:clamp(56px,7vw,92px) clamp(20px,6vw,80px);max-width:1180px;margin:0 auto}
+#about{padding-top:clamp(24px,3.5vw,42px)}
+#contact{padding-top:clamp(28px,4vw,48px)}
+#passions{padding-bottom:clamp(24px,3vw,40px)}
+.eyebrow{
+  font-size:.72rem;font-weight:600;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--terracotta-deep);display:flex;align-items:center;gap:14px;margin-bottom:18px;
+}
+.eyebrow::before{content:'';width:38px;height:1px;background:var(--gold)}
+.section-title{font-size:clamp(2rem,4.4vw,3.1rem);font-weight:700;line-height:1.12;margin-bottom:14px}
+.section-title em{font-style:italic;color:var(--terracotta)}
+.section-sub{color:var(--ink-soft);max-width:640px;font-size:1rem;margin-bottom:48px}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
+
+/* ============ HERO ============ */
+#hero{
+  min-height:88vh;display:flex;align-items:center;
+  padding-top:96px;padding-bottom:56px;position:relative;
+}
+.hero-grid{
+  display:block;width:100%;max-width:760px;margin:0 auto;
+  text-align:center;position:relative;z-index:1;
+}
+.hero-kicker{
+  font-size:.75rem;font-weight:600;letter-spacing:.42em;text-transform:uppercase;color:var(--ink-soft);
+  margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:14px;
+}
+.hero-kicker::before,.hero-kicker::after{content:'';width:46px;height:1px;background:var(--terracotta)}
+.hero-name{
+  font-size:clamp(2.9rem,7.4vw,5.4rem);font-weight:800;line-height:1.04;
+  margin-bottom:8px;position:relative;
+}
+.hero-name .shimmer{
+  background:linear-gradient(100deg,
+    var(--ink) 0%, var(--ink) 38%,
+    var(--terracotta) 46%, var(--gold) 52%, var(--terracotta) 58%,
+    var(--ink) 66%, var(--ink) 100%);
+  background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  animation:shimmerSweep 5.5s ease-in-out infinite;
+}
+@keyframes shimmerSweep{
+  0%{background-position:118% 0}
+  55%{background-position:-40% 0}
+  100%{background-position:-40% 0}
+}
+.hero-name .lastname{display:block;font-style:italic;font-weight:500;color:var(--terracotta);font-size:.62em;letter-spacing:.01em;margin-top:2px}
+.hero-title{
+  font-size:clamp(1rem,1.8vw,1.2rem);font-weight:500;color:var(--ink);
+  margin:20px 0 14px;letter-spacing:.01em;
+}
+.hero-title .dot{color:var(--gold);margin:0 8px}
+.hero-line{color:var(--ink-soft);max-width:620px;margin:0 auto 34px;font-size:1.02rem}
+.hero-cta{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 30px;border-radius:999px;font-size:.85rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
+  transition:transform .3s ease,box-shadow .3s ease,background .3s ease,color .3s ease;
+}
+.btn .ic,.btn .logo{width:16px;height:16px}
+.btn-primary{background:var(--terracotta-deep);color:var(--cream);box-shadow:0 12px 28px -12px rgba(158,69,38,.55)}
+.btn-primary:hover{background:var(--terracotta-deeper);transform:translateY(-2px);box-shadow:0 18px 34px -12px rgba(158,69,38,.6)}
+.btn-ghost{border:1px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px)}
+
+.hero-stats{
+  display:flex;justify-content:center;gap:clamp(18px,3vw,40px);margin-top:44px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:26px;
+}
+.stat{max-width:180px;text-align:center}
+.stat b{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.6vw,2rem);font-weight:700;color:var(--terracotta);display:block;font-variant-numeric:tabular-nums}
+.stat span{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ============ DELIVERY FOOTPRINT ============ */
+#footprint{padding-top:clamp(8px,1.5vw,18px);padding-bottom:clamp(28px,4vw,48px)}
+.fp-label{
+  font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.fp-label::before{content:'';width:30px;height:1px;background:var(--gold);flex:none}
+.fp-key{font-size:.66rem;letter-spacing:.1em;color:var(--terracotta-deep);text-transform:none;font-weight:500}
+.fp-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:44px}
+.fp-table{width:100%;border-collapse:collapse;font-size:.86rem;min-width:640px}
+.fp-table th{
+  text-align:center;font-weight:500;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);padding:0 10px 12px;
+}
+.fp-table th:first-child{text-align:left;width:24%}
+.fp-table td{padding:14px 10px;text-align:center;color:var(--ink-soft);border-top:1px solid var(--line)}
+.fp-table tbody tr:last-child td{border-bottom:1px solid var(--line)}
+.fp-inst{
+  text-align:left !important;font-family:'Playfair Display',serif;font-weight:700;
+  font-size:1rem;color:var(--ink) !important;
+}
+.fp-inst span{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.7rem;letter-spacing:.08em;color:var(--ink-soft);margin-top:3px}
+.fp-lead{color:var(--terracotta-deep) !important;font-weight:600}
+.fp-none{color:var(--line) !important}
+.fp-table.fp-gt th:first-child{width:32%}
+.fp-table.fp-gt td{text-align:left}
+.fp-fn{font-weight:600;color:var(--ink) !important;font-size:.9rem}
+@media (max-width:760px){
+  .fp-table{font-size:.8rem}
+}
+
+#about .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px)}
+.about-copy p{color:var(--ink-soft);margin-bottom:18px;font-size:1.02rem}
+.about-copy p strong{color:var(--ink);font-weight:600}
+.about-card{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:32px;box-shadow:var(--shadow);align-self:start;
+}
+.about-card h3{font-size:1.2rem;margin-bottom:18px}
+.about-card ul{list-style:none}
+.about-card li{
+  display:flex;gap:12px;align-items:flex-start;padding:11px 0;
+  border-bottom:1px dashed var(--line);font-size:.93rem;color:var(--ink-soft);
+}
+.about-card li:last-child{border-bottom:none}
+.about-card li::before{content:'';width:7px;height:7px;margin-top:7px;flex-shrink:0;border-radius:2px;background:var(--gold);transform:rotate(45deg)}
+.about-card li b{color:var(--ink);font-weight:600}
+
+/* ============ SKILLS ============ */
+#skills{background:var(--cream-2);max-width:none}
+#skills .inner{max-width:1180px;margin:0 auto}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px)}
+.skill-block h3{font-size:1.15rem;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.skill-block h3::after{content:'';flex:1;height:1px;background:var(--line)}
+.skill{margin-bottom:22px}
+.skill-head{display:flex;justify-content:space-between;align-items:center;font-size:.88rem;font-weight:500;margin-bottom:8px}
+.skill-name{display:inline-flex;align-items:center;gap:8px}
+.skill-name .brands{display:inline-flex;align-items:center;gap:6px}
+.skill-name .logo{width:16px;height:16px;color:var(--ink-soft)}
+.bar{height:7px;background:rgba(43,29,18,.08);border-radius:99px;overflow:hidden}
+.bar-fill{
+  height:100%;width:100%;border-radius:99px;
+  background:linear-gradient(90deg,var(--terracotta-deep),var(--gold));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 1.4s cubic-bezier(.22,.61,.36,1);
+  position:relative;
+}
+.bar-fill::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);
+  background-size:200% 100%;
+  animation:barShine 2.6s ease-in-out infinite;
+}
+@keyframes barShine{0%{background-position:180% 0}100%{background-position:-80% 0}}
+.skill-cats{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,44px);margin-top:44px}
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.chip{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:8px 16px;border-radius:999px;font-size:.8rem;font-weight:500;
+  border:1px solid var(--line);background:var(--card);color:var(--ink-soft);
+  transition:border-color .3s ease,color .3s ease,transform .3s ease;
+}
+.chip .logo{width:15px;height:15px;color:var(--terracotta-deep);transition:color .3s ease}
+.chip:hover{border-color:var(--gold);color:var(--terracotta-deep);transform:translateY(-2px)}
+
+/* competency cards */
+.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:60px}
+.comp-card{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 24px;
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.comp-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--gold)}
+.comp-icon{
+  width:46px;height:46px;border-radius:12px;background:rgba(195,154,75,.14);
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--terracotta-deep);
+}
+.comp-icon .ic{width:23px;height:23px}
+.comp-card h4{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:700;margin-bottom:8px}
+.comp-card p{font-size:.87rem;color:var(--ink-soft)}
+
+/* engagement cards (collapsible, inside timeline) */
+.eng{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  margin-bottom:14px;overflow:hidden;max-width:820px;
+  transition:border-color .35s ease,box-shadow .35s ease;
+}
+.eng:hover{box-shadow:var(--shadow)}
+.eng[open]{border-color:var(--gold)}
+.eng summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;
+  padding:18px 20px;flex-wrap:wrap;
+}
+.eng summary::-webkit-details-marker{display:none}
+.badge{
+  font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  padding:5px 11px;border-radius:6px;white-space:nowrap;
+}
+.badge-flight{background:rgba(46,102,64,.12);color:#2E6640;border:1px solid rgba(46,102,64,.4)}
+.badge-done{background:rgba(138,106,44,.14);color:#7A5C24;border:1px solid rgba(195,154,75,.45)}
+.eng-title{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;flex:1;min-width:220px;line-height:1.3}
+.eng-date{font-size:.7rem;letter-spacing:.12em;color:var(--ink-soft);text-transform:uppercase;white-space:nowrap}
+.eng-chev{color:var(--terracotta-deep);font-size:.8rem;transition:transform .3s ease;display:inline-flex}
+.eng-chev .ic{width:16px;height:16px}
+.eng[open] .eng-chev{transform:rotate(180deg)}
+.eng-body{padding:0 20px 20px}
+.eng-kicker{
+  font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--terracotta-deep);margin-bottom:12px;
+}
+.eng-body ul li{font-size:.9rem}
+
+/* ============ EXPERIENCE ============ */
+.timeline{position:relative;margin-top:8px}
+.timeline::before{
+  content:'';position:absolute;left:9px;top:6px;bottom:6px;width:1.5px;
+  background:linear-gradient(var(--gold),var(--terracotta) 60%,transparent);
+}
+.tl-item{position:relative;padding:0 0 44px 46px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{
+  position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;
+  background:var(--cream);border:2px solid var(--terracotta);
+}
+.tl-dot::after{content:'';position:absolute;inset:4px;border-radius:50%;background:var(--gold);opacity:.9}
+.tl-period{font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--terracotta-deep);margin-bottom:6px}
+.tl-role{font-size:1.28rem;font-weight:700;margin-bottom:2px}
+.tl-org{font-size:.92rem;color:var(--ink-soft);font-style:italic;font-family:'Playfair Display',serif;margin-bottom:12px}
+.tl-org a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--gold)}
+.tl-org a:hover{color:var(--terracotta-deep)}
+.tl-item p{color:var(--ink-soft);font-size:.95rem;max-width:760px}
+.tl-item p a{color:var(--terracotta-deep);text-decoration:none;border-bottom:1px dotted var(--gold)}
+.tl-item ul{margin-top:10px;list-style:none;max-width:760px}
+.tl-item ul li{
+  position:relative;padding-left:20px;color:var(--ink-soft);font-size:.92rem;margin-bottom:7px;
+}
+.tl-item ul li::before{content:'';position:absolute;left:0;top:9px;width:8px;height:1.5px;background:var(--gold)}
+
+/* ============ PROJECTS ============ */
+.project-card{
+  background:var(--card);border:1px solid var(--line);border-radius:22px;
+  padding:clamp(22px,3vw,38px);box-shadow:var(--shadow);margin-bottom:46px;
+  display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(26px,4vw,50px);align-items:center;
+  transition:border-color .35s ease,box-shadow .35s ease;
+}
+.project-card:hover{border-color:var(--gold)}
+.project-shot{
+  display:block;border-radius:14px;overflow:hidden;border:1px solid var(--line);
+  box-shadow:0 20px 44px -22px rgba(43,29,18,.45);
+  transition:transform .4s ease,box-shadow .4s ease;
+}
+.project-shot:hover{transform:translateY(-4px);box-shadow:0 28px 56px -22px rgba(43,29,18,.55)}
+.project-shot img{width:100%;height:auto;display:block}
+.project-kicker{font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--terracotta-deep);margin-bottom:10px}
+.project-name{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;line-height:1;margin-bottom:14px}
+.project-desc{color:var(--ink-soft);font-size:.96rem;margin-bottom:14px}
+.project-meta{font-size:.78rem;letter-spacing:.02em;color:var(--gold-deep);margin-bottom:18px;font-weight:600}
+.project-cta{margin-top:8px}
+
+/* ============ INTERESTS & PASSIONS ============ */
+.dj-card{
+  background:linear-gradient(150deg,#33220F,var(--ink) 60%,#1C1209);
+  border-radius:26px;padding:clamp(36px,5vw,60px);
+  color:var(--cream);position:relative;overflow:hidden;
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,5vw,64px);align-items:center;
+  box-shadow:var(--shadow);
+}
+.dj-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 85% 10%,rgba(195,154,75,.2),transparent 45%),
+             radial-gradient(circle at 8% 95%,rgba(192,91,54,.22),transparent 45%);
+  pointer-events:none;
+}
+.dj-card>*{position:relative}
+.vinyl-wrap{display:flex;justify-content:center}
+.vinyl{
+  width:clamp(180px,22vw,250px);aspect-ratio:1;border-radius:50%;
+  background:
+    repeating-radial-gradient(circle at 50% 50%,
+      #17100A 0px,#17100A 3px,#221710 4px,#221710 6px);
+  box-shadow:0 20px 50px -18px rgba(0,0,0,.65),inset 0 0 40px rgba(0,0,0,.6);
+  position:relative;
+  animation:vinylSpin 6s linear infinite;
+}
+.vinyl::before{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(from 0deg,transparent 0deg,rgba(251,247,239,.07) 40deg,transparent 80deg,transparent 180deg,rgba(251,247,239,.05) 220deg,transparent 260deg);
+}
+.vinyl-label{
+  position:absolute;inset:31%;border-radius:50%;
+  background:radial-gradient(circle,var(--gold) 0%,#A87F35 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--ink);
+}
+.vinyl-label b{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2vw,1.5rem);font-weight:800;letter-spacing:.08em}
+.vinyl-label span{font-size:.5rem;letter-spacing:.32em;text-transform:uppercase;font-weight:600;opacity:.75}
+.vinyl-label::after{
+  content:'';position:absolute;width:9px;height:9px;border-radius:50%;
+  background:var(--ink);top:calc(50% - 4.5px);
+}
+@keyframes vinylSpin{to{transform:rotate(360deg)}}
+.dj-kicker{font-size:.7rem;font-weight:600;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.dj-name{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;line-height:1;margin-bottom:8px}
+.dj-name em{font-style:italic;font-weight:500;color:var(--gold-soft);font-size:.5em;letter-spacing:.02em}
+.dj-desc{color:rgba(251,247,239,.72);font-size:.96rem;max-width:600px;margin-bottom:20px}
+.genre-row{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:24px}
+.genre-chip{
+  padding:7px 16px;border-radius:999px;font-size:.76rem;font-weight:600;letter-spacing:.06em;
+  border:1px solid rgba(195,154,75,.45);color:var(--gold-soft);
+  transition:background .3s ease,color .3s ease,transform .3s ease;
+}
+.genre-chip:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px)}
+.dj-events{font-size:.87rem;color:rgba(251,247,239,.75);margin-bottom:26px;line-height:1.8}
+.dj-events b{color:var(--cream);font-weight:600}
+.dj-events .ev{color:var(--gold-soft)}
+.dj-stats{
+  display:grid;grid-template-columns:repeat(4,auto);gap:20px clamp(20px,3vw,44px);
+  border-top:1px solid rgba(251,247,239,.15);padding-top:24px;width:fit-content;
+}
+.dj-stats div b{font-family:'Playfair Display',serif;font-size:clamp(1.25rem,2.2vw,1.7rem);font-weight:700;color:var(--gold);display:block;font-variant-numeric:tabular-nums}
+.dj-stats div span{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(251,247,239,.6)}
+.interest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+.interest-card{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.interest-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--gold)}
+.interest-icon{margin-bottom:12px;display:block;color:var(--terracotta-deep)}
+.interest-icon .ic{width:26px;height:26px}
+.interest-card h4{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:700;margin-bottom:8px}
+.interest-card p{font-size:.86rem;color:var(--ink-soft)}
+.mini-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.mini-chips span{
+  font-size:.68rem;font-weight:500;padding:4px 10px;border-radius:999px;
+  background:rgba(158,69,38,.09);color:var(--terracotta-deep);
+}
+.sub-head{font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;margin:56px 0 4px}
+.sub-head-note{font-size:.9rem;color:var(--ink-soft);margin-bottom:24px}
+
+/* ============ CONTACT ============ */
+#contact{text-align:center}
+.contact-card{
+  background:linear-gradient(150deg,#33220F,var(--ink) 60%,#1C1209);
+  border-radius:26px;padding:clamp(44px,7vw,84px) clamp(24px,6vw,80px);
+  color:var(--cream);position:relative;overflow:hidden;
+}
+.contact-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 80% 15%,rgba(195,154,75,.22),transparent 45%),
+             radial-gradient(circle at 12% 90%,rgba(192,91,54,.2),transparent 45%);
+}
+.contact-card>*{position:relative}
+.contact-card .eyebrow{justify-content:center;color:var(--gold)}
+.contact-card .eyebrow::before{background:var(--gold)}
+.contact-card h2{font-size:clamp(1.9rem,4.2vw,3rem);margin-bottom:16px}
+.contact-card h2 em{font-style:italic;color:var(--gold-soft)}
+.contact-card p{color:rgba(251,247,239,.72);max-width:520px;margin:0 auto 36px;font-size:1rem}
+.contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:34px}
+.contact-links .btn-primary{background:var(--gold);color:var(--ink);box-shadow:0 12px 28px -12px rgba(195,154,75,.5)}
+.contact-links .btn-primary:hover{background:var(--gold-soft)}
+.contact-links .btn-ghost{border-color:rgba(251,247,239,.4);color:var(--cream)}
+.contact-links .btn-ghost:hover{background:var(--cream);color:var(--ink)}
+.contact-meta{display:flex;justify-content:center;gap:clamp(18px,4vw,44px);flex-wrap:wrap;font-size:.85rem;color:rgba(251,247,239,.65)}
+.contact-meta span,.contact-meta a{display:inline-flex;align-items:center;gap:7px}
+.contact-meta .ic{width:15px;height:15px;color:var(--gold-soft)}
+.contact-meta a{color:var(--gold-soft);text-decoration:none;transition:color .3s ease}
+.contact-meta a:hover{color:var(--cream)}
+
+/* back to top */
+#toTop{
+  position:fixed;right:22px;bottom:22px;z-index:90;
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
+  background:var(--card);color:var(--terracotta-deep);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(12px);
+  transition:opacity .35s ease,transform .35s ease,visibility .35s ease,background .3s ease;
+}
+#toTop.show{opacity:1;visibility:visible;transform:translateY(0)}
+#toTop:hover{background:var(--cream-2)}
+#toTop .ic{width:20px;height:20px}
+
+footer{
+  text-align:center;padding:34px 20px;font-size:.78rem;color:var(--ink-soft);
+  border-top:1px solid var(--line);position:relative;z-index:1;letter-spacing:.06em;
+}
+
+
+/* ---- hero overview: sectors + company logos (v17) ---- */
+.hero-sectors{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:22px}
+.sector{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:500;color:var(--ink-soft);border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 16px}
+.sector .ic{width:16px;height:16px;color:var(--terracotta-deep)}
+.hero-logos{margin-top:32px}
+.hero-logos-label{display:block;font-size:.64rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);opacity:.68;margin-bottom:14px}
+.logo-wall{display:flex;justify-content:center;align-items:flex-start;flex-wrap:wrap;gap:18px 14px}
+.logo-item{display:flex;flex-direction:column;align-items:center;gap:9px;margin:0}
+.logo-item figcaption{font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.logo-tile{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 18px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 6px 16px -12px rgba(43,29,18,.3)}
+.logo-tile img{height:30px;width:auto;max-width:150px;object-fit:contain;display:block}
+/* ---- delphi metric row (v17) ---- */
+.project-metrics{display:flex;flex-wrap:wrap;gap:16px 28px;margin-bottom:20px}
+.pm{display:flex;flex-direction:column;gap:2px}
+.pm .ic{width:18px;height:18px;color:var(--terracotta-deep);margin-bottom:3px}
+.pm b{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.pm span{font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:900px){
+  .hero-grid,#about .about-grid,.skills-grid,.skill-cats,.proj-grid,.project-card{grid-template-columns:1fr}
+  .dj-card{grid-template-columns:1fr;text-align:center}
+  .dj-desc{margin-left:auto;margin-right:auto}
+  .genre-row,.dj-stats{justify-content:center}
+  .dj-stats{grid-template-columns:repeat(2,auto);margin:0 auto;width:fit-content}
+  .interest-grid{grid-template-columns:repeat(2,1fr)}
+  .comp-grid{grid-template-columns:repeat(2,1fr)}
+  #hero{padding-top:88px;min-height:auto}
+}
+@media (max-width:600px){
+  .interest-grid{grid-template-columns:1fr}
+  .comp-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  #menuBtn{display:block;z-index:110}
+  nav{justify-content:flex-end}
+  .nav-sora-sep{display:none}
+  .nav-links{
+    position:fixed;top:0;right:0;height:100vh;width:min(76vw,300px);
+    background:var(--cream);flex-direction:column;align-items:flex-start;
+    border:none;border-radius:0;padding:100px 36px 40px;gap:26px;
+    transform:translateX(100%);transition:transform .4s cubic-bezier(.22,.61,.36,1);
+    box-shadow:-20px 0 50px rgba(43,29,18,.15);
+  }
+  .nav-links.open{transform:translateX(0)}
+  .nav-links a{font-size:1rem}
+  .nav-links li.nav-sora a{font-size:1.15rem;padding:4px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.2s !important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  .bar-fill{transform:scaleX(1)}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- LOADING SCREEN -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-mark">TA</div>
+  <div class="loader-text">Loading Portfolio</div>
+</div>
+
+<!-- FLOATING PARTICLES -->
+<div id="particles" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav id="nav" aria-label="Primary">
+  <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#passions">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li class="nav-sora-sep" aria-hidden="true"></li>
+    <li class="nav-sora"><a href="#passions">Sora</a></li>
+  </ul>
+</nav>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section id="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-kicker reveal">Lagos, Nigeria</div>
+      <h1 class="hero-name reveal d1">
+        <span class="shimmer">Tobi</span>
+        <span class="lastname">Arogunmati</span>
+      </h1>
+      <div class="hero-title reveal d2">
+        Technical Project Manager<span class="dot">•</span>Product Manager<span class="dot">•</span>Agentic Product Engineer
+      </div>
+      <p class="hero-line reveal d3">
+        I manage strategic projects and lead cross-functional teams through enterprise transformation, from strategy and product thinking to clean delivery. With a strong grasp of the startup and technology landscape, I thrive at the intersection of innovation, strategy, and execution.
+      </p>
+      <div class="hero-cta reveal d4">
+        <a href="#experience" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      </div>
+      <div class="hero-stats reveal d4">
+        <div class="stat"><b>9+</b><span>Years Experience</span></div>
+      </div>
+      <div class="hero-sectors reveal d4">
+        <span class="sector"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+  <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg>Technology Advisory</span>
+        <span class="sector"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18v-7" />
+  <path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" />
+  <path d="M14 18v-7" />
+  <path d="M18 18v-7" />
+  <path d="M3 22h18" />
+  <path d="M6 18v-7" /></svg>Banking &amp; Financial Services</span>
+        <span class="sector"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2" />
+  <line x1="2" x2="22" y1="10" y2="10" />
+  <path d="M6 14h2" /></svg>Fintech</span>
+        <span class="sector"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg>SaaS</span>
+      </div>
+      <div class="hero-logos reveal d4">
+        <span class="hero-logos-label">Where I’ve worked</span>
+        <div class="logo-wall">
+          <figure class="logo-item">
+            <span class="logo-tile"><img src="logos/kpmg.webp" alt="KPMG" loading="lazy"></span>
+            <figcaption>KPMG</figcaption>
+          </figure>
+          <figure class="logo-item">
+            <span class="logo-tile"><img src="logos/gtbank.webp" alt="Guaranty Trust Bank" loading="lazy"></span>
+            <figcaption>GTBank</figcaption>
+          </figure>
+          <figure class="logo-item">
+            <span class="logo-tile"><img src="logos/shell.png" alt="Shell (SNEPCo)" loading="lazy"></span>
+            <figcaption>SNEPCo</figcaption>
+          </figure>
+          <figure class="logo-item">
+            <span class="logo-tile"><img src="logos/ecomarine.png" alt="Ecomarine (ECM) Terminals" loading="lazy"></span>
+            <figcaption>ECM Terminals</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="eyebrow reveal">01 — About Me</div>
+  <h2 class="section-title reveal d1"><em>Product building.</em><br>Technical delivery. Banking experience.</h2>
+  <div class="about-grid">
+    <div class="about-copy">
+      <p class="reveal d1">I'm a <strong>technical project manager</strong> with <strong>9+&nbsp;years'</strong> experience bridging corporate banking expertise and technology delivery. At <strong>KPMG Nigeria</strong>, where I've progressed from Experienced Analyst to <strong>Assistant Manager</strong>, I've led functional, integration, and QA workstreams within multi-million-dollar core banking, treasury, and digital transformation programmes across Nigeria and Central Africa, coordinating cross-functional teams and vendors on programmes involving 100+&nbsp;resources, from requirements through go-live.</p>
+      <p class="reveal d2">This consulting experience sits on a foundation of corporate banking. My years at <strong>GTBank</strong> grounded me in client relationships, credit, trade finance, and payments, so I've sat on both sides of the table and speak the business and technology languages fluently.</p>
+      <p class="reveal d3">More recently I've expanded into hands-on <strong>agentic product engineering</strong>: independently designing, building, and deploying full-stack web products, including <strong>Delphi</strong>, a live platform for exploring Nigeria's tech ecosystem. I define the requirements and architecture, direct AI agents to write the code, then review, test, and validate every release, combining banking knowledge, product strategy, and engineering execution to turn complex needs into working software.</p>
+    </div>
+    <div class="about-card reveal d2">
+      <h3>At a Glance</h3>
+      <ul>
+        <li><span><b>Assistant Manager</b>, Technology Advisory — KPMG Nigeria (since 2021)</span></li>
+        <li><span><b>200+&nbsp;enterprise applications</b> integrated through core banking cutover</span></li>
+        <li><span><b>$10M+</b> in transformation programme value</span></li>
+        <li><span><b>Builder of Delphi</b>, a platform for Nigeria's tech ecosystem</span></li>
+        <li><span><b>Corporate banking grounding</b>, relationship management at GTBank</span></li>
+        <li><span><b>PSM&nbsp;I</b> (in progress) · <b>ITIL® Foundation</b> · B.Sc. Industrial Physics, Covenant University</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DELIVERY FOOTPRINT ============ -->
+<section id="footprint">
+  <div class="fp-label reveal">Technology Advisory · KPMG <span class="fp-key">— highlighted = my workstream</span></div>
+  <div class="fp-wrap reveal d1">
+    <table class="fp-table">
+      <thead>
+        <tr>
+          <th>Engagement</th>
+          <th>Core Banking</th>
+          <th>Treasury</th>
+          <th>Lending &amp; Trade</th>
+          <th>Infrastructure &amp; Digital</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fp-inst">Greenfield Core<span>Central African bank · 2025 →</span></td>
+          <td class="fp-lead">Temenos Transact</td>
+          <td class="fp-none">—</td>
+          <td class="fp-none">—</td>
+          <td class="fp-lead">Temenos Digital</td>
+        </tr>
+        <tr>
+          <td class="fp-inst">Core Banking QA<span>UK subsidiary, Pan-African bank · 2025 →</span></td>
+          <td class="fp-lead">Oracle FLEXCUBE</td>
+          <td class="fp-none">—</td>
+          <td class="fp-none">—</td>
+          <td class="fp-lead">Integration &amp; Infra QA</td>
+        </tr>
+        <tr>
+          <td class="fp-inst">Core DB &amp; Network<span>Tier 2 Nigerian bank · 2025</span></td>
+          <td>Finacle 11</td>
+          <td class="fp-none">—</td>
+          <td class="fp-none">—</td>
+          <td class="fp-lead">OEM Selection · Network Refresh</td>
+        </tr>
+        <tr>
+          <td class="fp-inst">Core Migration<span>Tier 1 Nigerian bank · 2023–25</span></td>
+          <td class="fp-lead">Oracle FLEXCUBE</td>
+          <td>Calypso</td>
+          <td>Oracle · Kastle</td>
+          <td class="fp-lead">200+ Apps Integrated</td>
+        </tr>
+        <tr>
+          <td class="fp-inst">Treasury Migration<span>Tier 1 Nigerian bank · 2021–23</span></td>
+          <td class="fp-none">—</td>
+          <td class="fp-lead">Calypso</td>
+          <td class="fp-none">—</td>
+          <td class="fp-none">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="fp-label reveal">Corporate Banking · GTBank <span class="fp-key">— 2018–21</span></div>
+  <div class="fp-wrap reveal d1">
+    <table class="fp-table fp-gt">
+      <thead>
+        <tr><th>Function</th><th style="text-align:left">Scope</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fp-fn">Credit Structuring</td>
+          <td>Term Loans · Working Capital Financing · Overdrafts · Multi-Facility Credit Structuring</td>
+        </tr>
+        <tr>
+          <td class="fp-fn">International Trade</td>
+          <td>Letters of Credit · Bills of Exchange · Form M · Form NXP</td>
+        </tr>
+        <tr>
+          <td class="fp-fn">Digital Channels &amp; Collections</td>
+          <td>Digital Channel Onboarding · POS Collections</td>
+        </tr>
+        <tr>
+          <td class="fp-fn">Fintech Partnerships</td>
+          <td>Merchant Onboarding · Fintech Integrations</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience">
+  <div class="eyebrow reveal">02 — Experience</div>
+  <h2 class="section-title reveal d1">A career built across <em>both sides of banking.</em></h2>
+  <p class="section-sub reveal d2">From business development and relationship management in corporate banking, to leading the transformation programmes that rebuild the industry, and now building products of my own.</p>
+
+  <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Aug 2026 — Present</div>
+      <div class="tl-role">Agentic Product Engineer</div>
+      <div class="tl-org">Delphi — <a href="https://delphiatlas.com" target="_blank" rel="noopener">delphiatlas.com</a> · Lagos</div>
+      <p>Building and shipping a live full-stack product for Nigeria's tech ecosystem through agentic product engineering. Full story in <a href="#passions">Projects</a> below.</p>
+      <ul>
+        <li>Independently designed, built, and deployed a production full-stack web application (Next.js, TypeScript, Payload CMS, PostgreSQL/Neon, Vercel) as sole engineer.</li>
+        <li>Engineered an AI-assisted data curation and validation process, with provenance tracking and finalisation validators that safeguard data integrity across the platform.</li>
+        <li>Delivered search, editorial workflows, and releases through a structured development process: feature branches, pull-request reviews, and conventional commits.</li>
+      </ul>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Oct 2021 — Present</div>
+      <div class="tl-role">Technology Advisory · Experienced Analyst → Assistant Manager</div>
+      <div class="tl-org">KPMG Nigeria — Operations &amp; IT Enablement · Lagos</div>
+      <p>Driving digital transformation across financial institutions in Nigeria and Central Africa, leading core banking, treasury, network, and infrastructure programmes end-to-end. Tap any engagement for the full story.</p>
+
+      <details class="eng reveal">
+        <summary><span class="badge badge-flight">In Flight</span><span class="eng-title">Greenfield Core Banking — Central African Bank (Temenos)</span><span class="eng-date">Nov 2025 →</span><span class="eng-chev"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></span></summary>
+        <div class="eng-body">
+          <div class="eng-kicker">Team Lead, Implementation PM &amp; QA · Assistant Manager · Multi-Organisation Programme</div>
+          <ul>
+            <li>Leading the functional and integration workstreams on a greenfield Temenos Transact &amp; Digital implementation for a new bank building its core systems and operations from the ground up, with KPMG as project manager.</li>
+            <li>Facilitating development and validation of comprehensive BRDs and gap analyses from ambiguous business needs, leading cross-workstream workshops and solution demos to secure formal stakeholder sign-off.</li>
+            <li>Coordinating development and execution of a 3,000+ case UAT suite across key Temenos modules (Accounts, Products, Accounting, Treasury, Trade, MDP, Digital, Agency, and Reporting), driving defect resolution with vendor and business stakeholders.</li>
+            <li>Leading integration alignment across infrastructure and interfacing workstreams to drive end-to-end readiness ahead of go-live.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="eng reveal">
+        <summary><span class="badge badge-flight">In Flight</span><span class="eng-title">Core Banking Integration &amp; Infrastructure QA — UK Subsidiary, Pan-African Bank (FLEXCUBE)</span><span class="eng-date">Aug 2025 →</span><span class="eng-chev"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></span></summary>
+        <div class="eng-body">
+          <div class="eng-kicker">Team Lead, Integration &amp; Infrastructure · KPMG as Quality Assurance</div>
+          <ul>
+            <li>Directing QA oversight for a FLEXCUBE core migration spanning 20+ internal and third-party applications, conducting architecture and API inventory reviews that identified and remediated 10+ undocumented dependencies before the build phase.</li>
+            <li>Audited 100% of interface specifications across 23 high-risk core interfaces, prioritising customer impact and closing 5 contractual coverage gaps with third-party counterparties.</li>
+            <li>Reduced UAT defect leakage by 20% by auditing SIT and end-to-end execution across 2,000+ test scenarios, revalidating 60+ outstanding defects and holding the implementation vendor accountable for unresolved negative scenarios across 19 interfaces.</li>
+            <li>Executed data reconciliations on 8 high-risk, customer-impacting interfaces, validating 10,000+ exchanged records and confirming 100% of unsettled variances were closed with evidence within agreed SLAs.</li>
+            <li>Validated OEM infrastructure sizing against 3-year transaction and user-growth projections with 20% peak-load headroom, securing final sign-off on 40+ design, test, and workaround documents pre-go-live.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="eng reveal">
+        <summary><span class="badge badge-done">Delivered</span><span class="eng-title">Network Infrastructure Refresh — Tier 2 Nigerian Bank</span><span class="eng-date">Jul – Oct 2025</span><span class="eng-chev"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></span></summary>
+        <div class="eng-body">
+          <div class="eng-kicker">Project Management Lead · Experienced Senior · Primary + DR Sites</div>
+          <ul>
+            <li>Led the phase-out and replacement of 10 out-of-warranty, end-of-life leaf and border switches across primary and DR sites, eliminating unsupported hardware and its security vulnerabilities while restoring full vendor support coverage.</li>
+            <li>Directed a 4-person KPMG team coordinating OEM engineers and 10+ bank resources, sequencing cutovers over weekend maintenance windows to minimise impact.</li>
+            <li>Completed the 4-month refresh with near-zero operational disruption to core banking network services across both sites.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="eng reveal">
+        <summary><span class="badge badge-done">Delivered</span><span class="eng-title">Database Infrastructure OEM Selection — Tier 2 Nigerian Bank</span><span class="eng-date">Mar – Oct 2025</span><span class="eng-chev"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></span></summary>
+        <div class="eng-body">
+          <div class="eng-kicker">Project Lead, System Selection &amp; RFP · Senior Associate · $3M+ Decision · 3 Global OEMs</div>
+          <ul>
+            <li>Led the system selection and RFP process for the database infrastructure powering the bank's Finacle 11 core banking upgrade, a $3M+ decision evaluating leading global OEMs over 3 months.</li>
+            <li>Designed and ran a 3-phase evaluation framework: scoring written proposals, vendor presentations, and reference checks (3 references interviewed per OEM) against cost, functionality, and the bank's strategic objectives.</li>
+            <li>Delivered the recommendation that informed the bank's vendor award, directly enabling progression to the full implementation phase.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="eng reveal">
+        <summary><span class="badge badge-done">Delivered</span><span class="eng-title">Core Banking &amp; Six-Application Transformation — Tier 1 Nigerian Bank</span><span class="eng-date">Aug 2023 – Feb 2025</span><span class="eng-chev"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></span></summary>
+        <div class="eng-body">
+          <div class="eng-kicker">Integration &amp; Application Workstream Lead · Senior Associate → Experienced Senior · $5M+ Programme · 100+ Resources</div>
+          <ul>
+            <li>Led the integration and applications workstream on a $5M+ enterprise transformation migrating a Tier 1 Nigerian bank from its legacy core to Oracle FLEXCUBE, one of 6 concurrent enterprise platform implementations spanning core banking, treasury, lending, and trade.</li>
+            <li>Owned integration and refactoring of the bank's 200+ internal applications, middleware, and services, rebuilding 5 business-critical applications covering payments, workflows, and approvals, and reconnecting legacy database links to the new core.</li>
+            <li>Safeguarded continuity for customer accounts across a nationwide branch network and all customer channels (USSD, internet banking, mobile banking, payment gateways, third-party integrations) through core banking cutover.</li>
+            <li>Delivered concurrent implementation of Oracle Lending, Kastle Lending, Calypso, Oracle Trade, and a new Enterprise Service Bus into the new core environment.</li>
+            <li>Directed a 2-person KPMG integration team coordinating 5 development-team PMs alongside DevOps, security, QA, and business analysts, plus 30+ functional users, and supported training of 200+ bank staff.</li>
+            <li>Supported a stable core banking go-live in August 2024, then contributed to post-go-live defect resolution, stabilisation, and supplementary module delivery through February 2025.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="eng reveal">
+        <summary><span class="badge badge-done">Delivered</span><span class="eng-title">Treasury Implementation (Calypso) — Tier 1 Nigerian Bank</span><span class="eng-date">Oct 2021 – Aug 2023</span><span class="eng-chev"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></span></summary>
+        <div class="eng-body">
+          <div class="eng-kicker">Functional &amp; Data Workstream · Experienced Analyst → Associate · Multi-Billion-$ Portfolio Migrated · 22-Month Programme</div>
+          <ul>
+            <li>Delivered the functional and data workstream of a Calypso treasury implementation for one of Nigeria's largest banks, migrating from Finacle Treasury to Calypso across 10 cross-functional units, with KPMG as project manager and QA lead.</li>
+            <li>Achieved 99% data accuracy migrating a multi-billion-dollar treasury portfolio (FX trades, money market securities, bonds and treasury bills, borrowings, placements, Eurobonds) by architecting ETL validation protocols and leading resolution of 100+ critical defects across 13,000+ trade records.</li>
+            <li>Drove UAT to a 97% pass rate across 1,500+ test cases, facilitating defect-management sessions, coordinating testing across Treasury, Risk, IT, and Finance, and administering the Azure test tool.</li>
+            <li>Stepped up as Calypso SME during vendor-availability gaps, guiding end users and unblocking UAT execution to keep testing on schedule.</li>
+            <li>Enabled 100% trader self-sufficiency at go-live via Train-the-Trainer curricula and process-impact assessments for 30+ treasury users across 6 business departments.</li>
+            <li>Configured requirements for new products (Precious Metals, Commodity OTC) with zero requirement gaps in the RTM, contributing to a clean go-live with zero rollback.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Aug 2018 — Mar 2021</div>
+      <div class="tl-role">Relationship Manager, Corporate Banking</div>
+      <div class="tl-org">Guaranty Trust Bank (GTBank) Plc · Lagos</div>
+      <ul>
+        <li>Managed a corporate portfolio of 1,000+ clients (average balance sheet $7.5M) across FMCG, manufacturing, fintech, and telecoms, originating and structuring $150M+ in credit over 3 years with zero defaults.</li>
+        <li>Grew the team's deposit liability base by 43% through expanded payment and collection channels.</li>
+        <li>Facilitated $72M+ in Letters of Credit and trade finance instruments for manufacturing clients.</li>
+        <li>Managed a 30+ merchant POS portfolio generating $250K+ in monthly processing turnover.</li>
+      </ul>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Mar 2017 — Dec 2017</div>
+      <div class="tl-role">IT Support Specialist</div>
+      <div class="tl-org">Ecomarine Terminals Limited · Lagos</div>
+      <ul>
+        <li>Provided end-user technical support across software, hardware, and network systems for marine terminal operations.</li>
+        <li>Built budget and forecast templates in Excel, maintained security camera systems, and managed the company database.</li>
+      </ul>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Jan 2015 — Jun 2015</div>
+      <div class="tl-role">IT Services &amp; Operations Intern</div>
+      <div class="tl-org">Shell Nigeria Exploration &amp; Production Company (SNEPCo) · Lagos</div>
+      <ul>
+        <li>Delivered desktop and remote support across Windows, Linux, and Mac environments, including offshore users.</li>
+        <li>Coordinated hardware and software installations and maintained the IT infrastructure inventory.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="inner">
+    <div class="eyebrow reveal">03 — Skills</div>
+    <h2 class="section-title reveal d1">The toolkit behind <em>the delivery.</em></h2>
+    <p class="section-sub reveal d2">What I bring to the table, and the platforms and tools I bring it with.</p>
+    <div class="comp-grid">
+      <div class="comp-card reveal d1"><div class="comp-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></svg></div><h4>Enterprise Digital Transformation</h4><p>Large-scale programmes that modernise operations end-to-end: replacing legacy platforms, re-architecting application and integration landscapes, and aligning people, process, and technology from strategy through go-live.</p></div>
+      <div class="comp-card reveal d2"><div class="comp-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8" />
+  <rect width="16" height="12" x="4" y="8" rx="2" />
+  <path d="M2 14h2" />
+  <path d="M20 14h2" />
+  <path d="M15 13v2" />
+  <path d="M9 13v2" /></svg></div><h4>Agentic Product Engineering</h4><p>Designing, building, testing, and deploying software with AI agents, supported by clear project context, technical instructions, code review, and validation controls.</p></div>
+      <div class="comp-card reveal d3"><div class="comp-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18v-7" />
+  <path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" />
+  <path d="M14 18v-7" />
+  <path d="M18 18v-7" />
+  <path d="M3 22h18" />
+  <path d="M6 18v-7" /></svg></div><h4>Banking Operations Expertise</h4><p>Deep Tier 1 functional knowledge spanning lending and credit, international trade finance, treasury and money markets, account and product configuration, cards, and digital payments.</p></div>
+      <div class="comp-card reveal d1"><div class="comp-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+  <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg></div><h4>Technology Advisory &amp; Strategy</h4><p>Data, digital, and technology strategies aligned with organisational objectives, built to move real business metrics rather than sit on a shelf.</p></div>
+      <div class="comp-card reveal d2"><div class="comp-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3" />
+  <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+  <path d="m21 3 1 11h-2" />
+  <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+  <path d="M3 4h8" /></svg></div><h4>Vendor &amp; SI Management</h4><p>Vendor selection, RFP design, and coordination of system integrators and technical vendors across complex, multi-party delivery environments.</p></div>
+      <div class="comp-card reveal d3"><div class="comp-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+  <path d="m16 9-5.5 5.5L8 12" /></svg></div><h4>QA &amp; UAT Management</h4><p>Leading UAT and SIT cycles, managing defect resolution, and providing independent QA oversight of system-integrator deliverables.</p></div>
+      <div class="comp-card reveal d1"><div class="comp-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+  <path d="M12 11h4" />
+  <path d="M12 16h4" />
+  <path d="M8 11h.01" />
+  <path d="M8 16h.01" /></svg></div><h4>Requirements &amp; Business Analysis</h4><p>Requirements elicitation, gap analysis, and RTM traceability, translating complex business needs into precise technical specifications.</p></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-block reveal d1">
+        <h3>Banking &amp; Enterprise Platforms</h3>
+        <div class="chip-row">
+          <span class="chip">Calypso</span>
+          <span class="chip">Oracle FLEXCUBE</span>
+          <span class="chip">Temenos Transact</span>
+          <span class="chip">Temenos Digital</span>
+          <span class="chip">Finacle</span>
+          <span class="chip">Finacle Treasury</span>
+          <span class="chip">Oracle Lending</span>
+          <span class="chip">Oracle Trade</span>
+          <span class="chip">Kastle</span>
+          <span class="chip">Microsoft Dynamics</span>
+          <span class="chip">SAP</span>
+        </div>
+      </div>
+      <div class="skill-block reveal d2">
+        <h3>Web &amp; Product Engineering</h3>
+        <div class="chip-row">
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/></svg>Next.js</span>
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg>React</span>
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg>TypeScript</span>
+          <span class="chip">Payload CMS</span>
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5594 14.7228a.5269.5269 0 0 0-.0563-.1191c-.139-.2632-.4768-.3418-1.0074-.2321-1.6533.3411-2.2935.1312-2.5256-.0191 1.342-2.0482 2.445-4.522 3.0411-6.8297.2714-1.0507.7982-3.5237.1222-4.7316a1.5641 1.5641 0 0 0-.1509-.235C21.6931.9086 19.8007.0248 17.5099.0005c-1.4947-.0158-2.7705.3461-3.1161.4794a9.449 9.449 0 0 0-.5159-.0816 8.044 8.044 0 0 0-1.3114-.1278c-1.1822-.0184-2.2038.2642-3.0498.8406-.8573-.3211-4.7888-1.645-7.2219.0788C.9359 2.1526.3086 3.8733.4302 6.3043c.0409.818.5069 3.334 1.2423 5.7436.4598 1.5065.9387 2.7019 1.4334 3.582.553.9942 1.1259 1.5933 1.7143 1.7895.4474.1491 1.1327.1441 1.8581-.7279.8012-.9635 1.5903-1.8258 1.9446-2.2069.4351.2355.9064.3625 1.39.3772a.0569.0569 0 0 0 .0004.0041 11.0312 11.0312 0 0 0-.2472.3054c-.3389.4302-.4094.5197-1.5002.7443-.3102.064-1.1344.2339-1.1464.8115-.0025.1224.0329.2309.0919.3268.2269.4231.9216.6097 1.015.6331 1.3345.3335 2.5044.092 3.3714-.6787-.017 2.231.0775 4.4174.3454 5.0874.2212.5529.7618 1.9045 2.4692 1.9043.2505 0 .5263-.0291.8296-.0941 1.7819-.3821 2.5557-1.1696 2.855-2.9059.1503-.8707.4016-2.8753.5388-4.1012.0169-.0703.0357-.1207.057-.1362.0007-.0005.0697-.0471.4272.0307a.3673.3673 0 0 0 .0443.0068l.2539.0223.0149.001c.8468.0384 1.9114-.1426 2.5312-.4308.6438-.2988 1.8057-1.0323 1.5951-1.6698zM2.371 11.8765c-.7435-2.4358-1.1779-4.8851-1.2123-5.5719-.1086-2.1714.4171-3.6829 1.5623-4.4927 1.8367-1.2986 4.8398-.5408 6.108-.13-.0032.0032-.0066.0061-.0098.0094-2.0238 2.044-1.9758 5.536-1.9708 5.7495-.0002.0823.0066.1989.0162.3593.0348.5873.0996 1.6804-.0735 2.9184-.1609 1.1504.1937 2.2764.9728 3.0892.0806.0841.1648.1631.2518.2374-.3468.3714-1.1004 1.1926-1.9025 2.1576-.5677.6825-.9597.5517-1.0886.5087-.3919-.1307-.813-.5871-1.2381-1.3223-.4796-.839-.9635-2.0317-1.4155-3.5126zm6.0072 5.0871c-.1711-.0428-.3271-.1132-.4322-.1772.0889-.0394.2374-.0902.4833-.1409 1.2833-.2641 1.4815-.4506 1.9143-1.0002.0992-.126.2116-.2687.3673-.4426a.3549.3549 0 0 0 .0737-.1298c.1708-.1513.2724-.1099.4369-.0417.156.0646.3078.26.3695.4752.0291.1016.0619.2945-.0452.4444-.9043 1.2658-2.2216 1.2494-3.1676 1.0128zm2.094-3.988-.0525.141c-.133.3566-.2567.6881-.3334 1.003-.6674-.0021-1.3168-.2872-1.8105-.8024-.6279-.6551-.9131-1.5664-.7825-2.5004.1828-1.3079.1153-2.4468.079-3.0586-.005-.0857-.0095-.1607-.0122-.2199.2957-.2621 1.6659-.9962 2.6429-.7724.4459.1022.7176.4057.8305.928.5846 2.7038.0774 3.8307-.3302 4.7363-.084.1866-.1633.3629-.2311.5454zm7.3637 4.5725c-.0169.1768-.0358.376-.0618.5959l-.146.4383a.3547.3547 0 0 0-.0182.1077c-.0059.4747-.054.6489-.115.8693-.0634.2292-.1353.4891-.1794 1.0575-.11 1.4143-.8782 2.2267-2.4172 2.5565-1.5155.3251-1.7843-.4968-2.0212-1.2217a6.5824 6.5824 0 0 0-.0769-.2266c-.2154-.5858-.1911-1.4119-.1574-2.5551.0165-.5612-.0249-1.9013-.3302-2.6462.0044-.2932.0106-.5909.019-.8918a.3529.3529 0 0 0-.0153-.1126 1.4927 1.4927 0 0 0-.0439-.208c-.1226-.4283-.4213-.7866-.7797-.9351-.1424-.059-.4038-.1672-.7178-.0869.067-.276.1831-.5875.309-.9249l.0529-.142c.0595-.16.134-.3257.213-.5012.4265-.9476 1.0106-2.2453.3766-5.1772-.2374-1.0981-1.0304-1.6343-2.2324-1.5098-.7207.0746-1.3799.3654-1.7088.5321a5.6716 5.6716 0 0 0-.1958.1041c.0918-1.1064.4386-3.1741 1.7357-4.4823a4.0306 4.0306 0 0 1 .3033-.276.3532.3532 0 0 0 .1447-.0644c.7524-.5706 1.6945-.8506 2.802-.8325.4091.0067.8017.0339 1.1742.081 1.939.3544 3.2439 1.4468 4.0359 2.3827.8143.9623 1.2552 1.9315 1.4312 2.4543-1.3232-.1346-2.2234.1268-2.6797.779-.9926 1.4189.543 4.1729 1.2811 5.4964.1353.2426.2522.4522.2889.5413.2403.5825.5515.9713.7787 1.2552.0696.087.1372.1714.1885.245-.4008.1155-1.1208.3825-1.0552 1.717-.0123.1563-.0423.4469-.0834.8148-.0461.2077-.0702.4603-.0994.7662zm.8905-1.6211c-.0405-.8316.2691-.9185.5967-1.0105a2.8566 2.8566 0 0 0 .135-.0406 1.202 1.202 0 0 0 .1342.103c.5703.3765 1.5823.4213 3.0068.1344-.2016.1769-.5189.3994-.9533.6011-.4098.1903-1.0957.333-1.7473.3636-.7197.0336-1.0859-.0807-1.1721-.151zm.5695-9.2712c-.0059.3508-.0542.6692-.1054 1.0017-.055.3576-.112.7274-.1264 1.1762-.0142.4368.0404.8909.0932 1.3301.1066.887.216 1.8003-.2075 2.7014a3.5272 3.5272 0 0 1-.1876-.3856c-.0527-.1276-.1669-.3326-.3251-.6162-.6156-1.1041-2.0574-3.6896-1.3193-4.7446.3795-.5427 1.3408-.5661 2.1781-.463zm.2284 7.0137a12.3762 12.3762 0 0 0-.0853-.1074l-.0355-.0444c.7262-1.1995.5842-2.3862.4578-3.4385-.0519-.4318-.1009-.8396-.0885-1.2226.0129-.4061.0666-.7543.1185-1.0911.0639-.415.1288-.8443.1109-1.3505.0134-.0531.0188-.1158.0118-.1902-.0457-.4855-.5999-1.938-1.7294-3.253-.6076-.7073-1.4896-1.4972-2.6889-2.0395.5251-.1066 1.2328-.2035 2.0244-.1859 2.0515.0456 3.6746.8135 4.8242 2.2824a.908.908 0 0 1 .0667.1002c.7231 1.3556-.2762 6.2751-2.9867 10.5405zm-8.8166-6.1162c-.025.1794-.3089.4225-.6211.4225a.5821.5821 0 0 1-.0809-.0056c-.1873-.026-.3765-.144-.5059-.3156-.0458-.0605-.1203-.178-.1055-.2844.0055-.0401.0261-.0985.0925-.1488.1182-.0894.3518-.1226.6096-.0867.3163.0441.6426.1938.6113.4186zm7.9305-.4114c.0111.0792-.049.201-.1531.3102-.0683.0717-.212.1961-.4079.2232a.5456.5456 0 0 1-.075.0052c-.2935 0-.5414-.2344-.5607-.3717-.024-.1765.2641-.3106.5611-.352.297-.0414.6111.0088.6356.1851z"/></svg>PostgreSQL</span>
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 0V24l-9.365-8.045V24H0V0ZM2.942 21.087h8.751V9.563l9.365 8.204V2.919L2.942 2.914Z"/></svg>Neon</span>
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 1.608 12 20.784H0Z"/></svg>Vercel</span>
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5088 16.8447c.1475-.5068.0908-.9707-.1553-1.3154-.2246-.3164-.6045-.499-1.0615-.5205l-8.6592-.1123a.1559.1559 0 0 1-.1333-.0713c-.0283-.042-.0351-.0986-.021-.1553.0278-.084.1123-.1484.2036-.1562l8.7359-.1123c1.0351-.0489 2.1601-.8868 2.5537-1.9136l.499-1.3013c.0215-.0561.0293-.1128.0147-.168-.5625-2.5463-2.835-4.4453-5.5499-4.4453-2.5039 0-4.6284 1.6177-5.3876 3.8614-.4927-.3658-1.1187-.5625-1.794-.499-1.2026.119-2.1665 1.083-2.2861 2.2856-.0283.31-.0069.6128.0635.894C1.5683 13.171 0 14.7754 0 16.752c0 .1748.0142.3515.0352.5273.0141.083.0844.1475.1689.1475h15.9814c.0909 0 .1758-.0645.2032-.1553l.12-.4268zm2.7568-5.5634c-.0771 0-.1611 0-.2383.0112-.0566 0-.1054.0415-.127.0976l-.3378 1.1744c-.1475.5068-.0918.9707.1543 1.3164.2256.3164.6055.498 1.0625.5195l1.8437.1133c.0557 0 .1055.0263.1329.0703.0283.043.0351.1074.0214.1562-.0283.084-.1132.1485-.204.1553l-1.921.1123c-1.041.0488-2.1582.8867-2.5527 1.914l-.1406.3585c-.0283.0713.0215.1416.0986.1416h6.5977c.0771 0 .1474-.0489.169-.126.1122-.4082.1757-.837.1757-1.2803 0-2.6025-2.125-4.727-4.7344-4.727"/></svg>Cloudflare</span>
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</span>
+        </div>
+      </div>
+    </div>
+    <div class="skill-cats">
+      <div class="skill-block reveal d1">
+        <h3>Integration &amp; Data</h3>
+        <div class="chip-row">
+          <span class="chip">API &amp; Middleware Integration</span>
+          <span class="chip">Microservices Architecture</span>
+          <span class="chip">ETL &amp; Data Migration</span>
+          <span class="chip">SQL</span>
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5594 14.7228a.5269.5269 0 0 0-.0563-.1191c-.139-.2632-.4768-.3418-1.0074-.2321-1.6533.3411-2.2935.1312-2.5256-.0191 1.342-2.0482 2.445-4.522 3.0411-6.8297.2714-1.0507.7982-3.5237.1222-4.7316a1.5641 1.5641 0 0 0-.1509-.235C21.6931.9086 19.8007.0248 17.5099.0005c-1.4947-.0158-2.7705.3461-3.1161.4794a9.449 9.449 0 0 0-.5159-.0816 8.044 8.044 0 0 0-1.3114-.1278c-1.1822-.0184-2.2038.2642-3.0498.8406-.8573-.3211-4.7888-1.645-7.2219.0788C.9359 2.1526.3086 3.8733.4302 6.3043c.0409.818.5069 3.334 1.2423 5.7436.4598 1.5065.9387 2.7019 1.4334 3.582.553.9942 1.1259 1.5933 1.7143 1.7895.4474.1491 1.1327.1441 1.8581-.7279.8012-.9635 1.5903-1.8258 1.9446-2.2069.4351.2355.9064.3625 1.39.3772a.0569.0569 0 0 0 .0004.0041 11.0312 11.0312 0 0 0-.2472.3054c-.3389.4302-.4094.5197-1.5002.7443-.3102.064-1.1344.2339-1.1464.8115-.0025.1224.0329.2309.0919.3268.2269.4231.9216.6097 1.015.6331 1.3345.3335 2.5044.092 3.3714-.6787-.017 2.231.0775 4.4174.3454 5.0874.2212.5529.7618 1.9045 2.4692 1.9043.2505 0 .5263-.0291.8296-.0941 1.7819-.3821 2.5557-1.1696 2.855-2.9059.1503-.8707.4016-2.8753.5388-4.1012.0169-.0703.0357-.1207.057-.1362.0007-.0005.0697-.0471.4272.0307a.3673.3673 0 0 0 .0443.0068l.2539.0223.0149.001c.8468.0384 1.9114-.1426 2.5312-.4308.6438-.2988 1.8057-1.0323 1.5951-1.6698zM2.371 11.8765c-.7435-2.4358-1.1779-4.8851-1.2123-5.5719-.1086-2.1714.4171-3.6829 1.5623-4.4927 1.8367-1.2986 4.8398-.5408 6.108-.13-.0032.0032-.0066.0061-.0098.0094-2.0238 2.044-1.9758 5.536-1.9708 5.7495-.0002.0823.0066.1989.0162.3593.0348.5873.0996 1.6804-.0735 2.9184-.1609 1.1504.1937 2.2764.9728 3.0892.0806.0841.1648.1631.2518.2374-.3468.3714-1.1004 1.1926-1.9025 2.1576-.5677.6825-.9597.5517-1.0886.5087-.3919-.1307-.813-.5871-1.2381-1.3223-.4796-.839-.9635-2.0317-1.4155-3.5126zm6.0072 5.0871c-.1711-.0428-.3271-.1132-.4322-.1772.0889-.0394.2374-.0902.4833-.1409 1.2833-.2641 1.4815-.4506 1.9143-1.0002.0992-.126.2116-.2687.3673-.4426a.3549.3549 0 0 0 .0737-.1298c.1708-.1513.2724-.1099.4369-.0417.156.0646.3078.26.3695.4752.0291.1016.0619.2945-.0452.4444-.9043 1.2658-2.2216 1.2494-3.1676 1.0128zm2.094-3.988-.0525.141c-.133.3566-.2567.6881-.3334 1.003-.6674-.0021-1.3168-.2872-1.8105-.8024-.6279-.6551-.9131-1.5664-.7825-2.5004.1828-1.3079.1153-2.4468.079-3.0586-.005-.0857-.0095-.1607-.0122-.2199.2957-.2621 1.6659-.9962 2.6429-.7724.4459.1022.7176.4057.8305.928.5846 2.7038.0774 3.8307-.3302 4.7363-.084.1866-.1633.3629-.2311.5454zm7.3637 4.5725c-.0169.1768-.0358.376-.0618.5959l-.146.4383a.3547.3547 0 0 0-.0182.1077c-.0059.4747-.054.6489-.115.8693-.0634.2292-.1353.4891-.1794 1.0575-.11 1.4143-.8782 2.2267-2.4172 2.5565-1.5155.3251-1.7843-.4968-2.0212-1.2217a6.5824 6.5824 0 0 0-.0769-.2266c-.2154-.5858-.1911-1.4119-.1574-2.5551.0165-.5612-.0249-1.9013-.3302-2.6462.0044-.2932.0106-.5909.019-.8918a.3529.3529 0 0 0-.0153-.1126 1.4927 1.4927 0 0 0-.0439-.208c-.1226-.4283-.4213-.7866-.7797-.9351-.1424-.059-.4038-.1672-.7178-.0869.067-.276.1831-.5875.309-.9249l.0529-.142c.0595-.16.134-.3257.213-.5012.4265-.9476 1.0106-2.2453.3766-5.1772-.2374-1.0981-1.0304-1.6343-2.2324-1.5098-.7207.0746-1.3799.3654-1.7088.5321a5.6716 5.6716 0 0 0-.1958.1041c.0918-1.1064.4386-3.1741 1.7357-4.4823a4.0306 4.0306 0 0 1 .3033-.276.3532.3532 0 0 0 .1447-.0644c.7524-.5706 1.6945-.8506 2.802-.8325.4091.0067.8017.0339 1.1742.081 1.939.3544 3.2439 1.4468 4.0359 2.3827.8143.9623 1.2552 1.9315 1.4312 2.4543-1.3232-.1346-2.2234.1268-2.6797.779-.9926 1.4189.543 4.1729 1.2811 5.4964.1353.2426.2522.4522.2889.5413.2403.5825.5515.9713.7787 1.2552.0696.087.1372.1714.1885.245-.4008.1155-1.1208.3825-1.0552 1.717-.0123.1563-.0423.4469-.0834.8148-.0461.2077-.0702.4603-.0994.7662zm.8905-1.6211c-.0405-.8316.2691-.9185.5967-1.0105a2.8566 2.8566 0 0 0 .135-.0406 1.202 1.202 0 0 0 .1342.103c.5703.3765 1.5823.4213 3.0068.1344-.2016.1769-.5189.3994-.9533.6011-.4098.1903-1.0957.333-1.7473.3636-.7197.0336-1.0859-.0807-1.1721-.151zm.5695-9.2712c-.0059.3508-.0542.6692-.1054 1.0017-.055.3576-.112.7274-.1264 1.1762-.0142.4368.0404.8909.0932 1.3301.1066.887.216 1.8003-.2075 2.7014a3.5272 3.5272 0 0 1-.1876-.3856c-.0527-.1276-.1669-.3326-.3251-.6162-.6156-1.1041-2.0574-3.6896-1.3193-4.7446.3795-.5427 1.3408-.5661 2.1781-.463zm.2284 7.0137a12.3762 12.3762 0 0 0-.0853-.1074l-.0355-.0444c.7262-1.1995.5842-2.3862.4578-3.4385-.0519-.4318-.1009-.8396-.0885-1.2226.0129-.4061.0666-.7543.1185-1.0911.0639-.415.1288-.8443.1109-1.3505.0134-.0531.0188-.1158.0118-.1902-.0457-.4855-.5999-1.938-1.7294-3.253-.6076-.7073-1.4896-1.4972-2.6889-2.0395.5251-.1066 1.2328-.2035 2.0244-.1859 2.0515.0456 3.6746.8135 4.8242 2.2824a.908.908 0 0 1 .0667.1002c.7231 1.3556-.2762 6.2751-2.9867 10.5405zm-8.8166-6.1162c-.025.1794-.3089.4225-.6211.4225a.5821.5821 0 0 1-.0809-.0056c-.1873-.026-.3765-.144-.5059-.3156-.0458-.0605-.1203-.178-.1055-.2844.0055-.0401.0261-.0985.0925-.1488.1182-.0894.3518-.1226.6096-.0867.3163.0441.6426.1938.6113.4186zm7.9305-.4114c.0111.0792-.049.201-.1531.3102-.0683.0717-.212.1961-.4079.2232a.5456.5456 0 0 1-.075.0052c-.2935 0-.5414-.2344-.5607-.3717-.024-.1765.2641-.3106.5611-.352.297-.0414.6111.0088.6356.1851z"/></svg>PostgreSQL</span>
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.527.099C6.955-.744.942 3.9.099 10.473c-.843 6.572 3.8 12.584 10.373 13.428 6.573.843 12.587-3.801 13.428-10.374C24.744 6.955 20.101.943 13.527.099zm2.471 7.485a.855.855 0 0 0-.593.25l-4.453 4.453-.307-.307-.643-.643c4.389-4.376 5.18-4.418 5.996-3.753zm-4.863 4.861l4.44-4.44a.62.62 0 1 1 .847.903l-4.699 4.125-.588-.588zm.33.694l-1.1.238a.06.06 0 0 1-.067-.032.06.06 0 0 1 .01-.073l.645-.645.512.512zm-2.803-.459l1.172-1.172.879.878-1.979.426a.074.074 0 0 1-.085-.039.072.072 0 0 1 .013-.093zm-3.646 6.058a.076.076 0 0 1-.069-.083.077.077 0 0 1 .022-.046h.002l.946-.946 1.222 1.222-2.123-.147zm2.425-1.256a.228.228 0 0 0-.117.256l.203.865a.125.125 0 0 1-.211.117h-.003l-.934-.934-.294-.295 3.762-3.758 1.82-.393.874.874c-1.255 1.102-2.971 2.201-5.1 3.268zm5.279-3.428h-.002l-.839-.839 4.699-4.125a.952.952 0 0 0 .119-.127c-.148 1.345-2.029 3.245-3.977 5.091zm3.657-6.46l-.003-.002a1.822 1.822 0 0 1 2.459-2.684l-1.61 1.613a.119.119 0 0 0 0 .169l1.247 1.247a1.817 1.817 0 0 1-2.093-.343zm2.578 0a1.714 1.714 0 0 1-.271.218h-.001l-1.207-1.207 1.533-1.533c.661.72.637 1.832-.054 2.522zM18.855 6.05a.143.143 0 0 0-.053.157.416.416 0 0 1-.053.45.14.14 0 0 0 .023.197.141.141 0 0 0 .084.03.14.14 0 0 0 .106-.05.691.691 0 0 0 .087-.751.138.138 0 0 0-.194-.033z"/></svg>Postman</span>
+        </div>
+      </div>
+      <div class="skill-block reveal d2">
+        <h3>AI Development Tools</h3>
+        <div class="chip-row">
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg>Claude Code</span>
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>Codex</span>
+          <span class="chip">Manus</span>
+          <span class="chip">Z AI</span>
+          <span class="chip">Qwen</span>
+        </div>
+      </div>
+      <div class="skill-block reveal d1">
+        <h3>Delivery &amp; Design Tools</h3>
+        <div class="chip-row">
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.571 11.513H0a5.218 5.218 0 0 0 5.232 5.215h2.13v2.057A5.215 5.215 0 0 0 12.575 24V12.518a1.005 1.005 0 0 0-1.005-1.005zm5.723-5.756H5.736a5.215 5.215 0 0 0 5.215 5.214h2.129v2.058a5.218 5.218 0 0 0 5.215 5.214V6.758a1.001 1.001 0 0 0-1.001-1.001zM23.013 0H11.455a5.215 5.215 0 0 0 5.215 5.215h2.129v2.057A5.215 5.215 0 0 0 24 12.483V1.005A1.001 1.001 0 0 0 23.013 0Z"/></svg>Jira</span>
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.87 18.257c-.248.382-.53.875-.763 1.245a.764.764 0 0 0 .255 1.04l4.965 3.054a.764.764 0 0 0 1.058-.26c.199-.332.454-.763.733-1.221 1.967-3.247 3.945-2.853 7.508-1.146l4.957 2.337a.764.764 0 0 0 1.028-.382l2.364-5.346a.764.764 0 0 0-.382-1 599.851 599.851 0 0 1-4.965-2.361C10.911 10.97 5.224 11.185.87 18.257zM23.131 5.743c.249-.405.531-.875.764-1.25a.764.764 0 0 0-.256-1.034L18.675.404a.764.764 0 0 0-1.058.26c-.195.335-.451.763-.734 1.225-1.966 3.246-3.945 2.85-7.508 1.146L4.437.694a.764.764 0 0 0-1.027.382L1.046 6.422a.764.764 0 0 0 .382 1c1.039.49 3.105 1.467 4.965 2.361 6.698 3.246 12.392 3.029 16.738-4.04z"/></svg>Confluence</span>
+          <span class="chip">MS Project</span>
+          <span class="chip">Azure Test Plans</span>
+          <span class="chip">Power BI</span>
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>Figma</span>
+          <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM6.962 7.68c.754 0 1.337.549 1.405 1.2.069.583-.171 1.097-.822 1.406-.343.171-.48.172-.549.069-.034-.069 0-.137.069-.206.617-.514.617-.926.548-1.508-.034-.378-.308-.618-.583-.618-1.2 0-2.914 2.674-2.674 4.629.103.754.549 1.646 1.509 1.646.308 0 .65-.103.96-.24.5-.264.799-.47 1.097-.8-.073-.885.704-2.046 1.851-2.046.515 0 .926.205.96.583.068.514-.377.582-.514.582s-.378-.034-.378-.17c-.034-.138.309-.07.275-.378-.035-.206-.24-.274-.446-.274-.72 0-1.131.994-1.029 1.611.035.275.172.549.447.549.205 0 .514-.31.617-.755.068-.308.343-.514.583-.514.102 0 .17.034.205.171v.138c-.034.137-.137.548-.102.651 0 .069.034.171.17.171.092 0 .436-.18.777-.459.117-.59.253-1.298.253-1.357.034-.24.137-.48.617-.48.103 0 .171.034.205.171v.138l-.136.617c.445-.583 1.097-.994 1.508-.994.172 0 .309.102.309.274 0 .103 0 .274-.069.446-.137.377-.309.96-.412 1.474 0 .137.035.274.207.274.171 0 .685-.206 1.096-.754l.007-.004c-.002-.068-.007-.134-.007-.202 0-.411.035-.754.104-.994.068-.274.411-.514.617-.514.103 0 .205.069.205.171 0 .035 0 .103-.034.137-.137.446-.24.857-.24 1.269 0 .24.034.582.102.788 0 .034.035.069.07.069.068 0 .548-.445.89-1.028-.308-.206-.48-.549-.48-.96 0-.72.446-1.097.858-1.097.343 0 .617.24.617.72 0 .308-.103.65-.274.96h.102a.77.77 0 0 0 .584-.24.293.293 0 0 1 .134-.117c.335-.425.83-.74 1.41-.74.48 0 .924.205.959.582.068.515-.378.618-.515.618l-.002-.002c-.138 0-.377-.035-.377-.172 0-.137.309-.068.274-.376-.034-.206-.24-.275-.446-.275-.686 0-1.13.891-1.028 1.611.034.275.171.583.445.583.206 0 .515-.308.652-.754.068-.274.343-.514.583-.514.103 0 .17.034.205.171 0 .069 0 .206-.137.652-.17.308-.171.48-.137.617.034.274.171.48.309.583.034.034.068.102.068.102 0 .069-.034.138-.137.138-.034 0-.068 0-.103-.035-.514-.205-.72-.548-.789-.891-.205.24-.445.377-.72.377-.445 0-.89-.411-.96-.926a1.609 1.609 0 0 1 .075-.649c-.203.13-.422.203-.623.203h-.17c-.447.652-.927 1.098-1.27 1.303a.896.896 0 0 1-.377.104c-.068 0-.171-.035-.205-.104-.095-.152-.156-.392-.193-.667-.481.527-1.145.805-1.453.805-.343 0-.548-.206-.582-.55v-.376c.102-.754.377-1.2.377-1.337a.074.074 0 0 0-.069-.07c-.24 0-1.028.824-1.166 1.373l-.103.445c-.068.309-.377.515-.582.515-.103 0-.172-.035-.206-.172v-.137l.046-.233c-.435.31-.87.508-1.075.508-.308 0-.48-.172-.514-.412-.206.274-.445.412-.754.412-.352 0-.696-.24-.862-.593-.244.275-.523.553-.852.764-.48.309-1.028.549-1.68.549-.582 0-1.097-.309-1.371-.583-.412-.377-.651-.96-.686-1.509-.205-1.68.823-3.84 2.4-4.8.378-.205.755-.343 1.132-.343zm9.77 3.291c-.104 0-.172.172-.172.343 0 .274.137.583.309.755a1.74 1.74 0 0 0 .102-.583c0-.343-.137-.515-.24-.515z"/></svg>Canva</span>
+        </div>
+      </div>
+      <div class="skill-block reveal d2">
+        <h3>Frameworks &amp; Methods</h3>
+        <div class="chip-row">
+          <span class="chip">Agile / Scrum</span>
+          <span class="chip">Waterfall</span>
+          <span class="chip">SDLC</span>
+          <span class="chip">Requirements Traceability (RTM)</span>
+          <span class="chip">Risk Management</span>
+          <span class="chip">Change Management</span>
+        </div>
+      </div>
+    </div>
+    <div class="skill-block reveal d3" style="margin-top:44px">
+      <h3>Education &amp; Credentials</h3>
+      <div class="chip-row">
+        <span class="chip">B.Sc. Industrial Physics (Electronics &amp; IT) — Covenant University</span>
+        <span class="chip">Professional Scrum Master I (PSM I) — In progress</span>
+        <span class="chip">ITIL® Foundation Certificate in IT Service Management</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS & PASSIONS ============ -->
+<section id="passions">
+  <div class="eyebrow reveal">04 — Projects &amp; Passions</div>
+  <h2 class="section-title reveal d1">What I build, <em>on and off the clock.</em></h2>
+  <p class="section-sub reveal d2">From shipping a live product for Nigeria's tech ecosystem to running the rooms after hours, the same instincts to build, organise, and curate.</p>
+
+  <article class="project-card reveal d1">
+    <a class="project-shot" href="https://delphiatlas.com" target="_blank" rel="noopener">
+      <img src="delphi-card.png" alt="Delphi — the Atlas of Nigerian Tech: homepage with search and ecosystem stats for companies, funding rounds, investors, and people" width="1440" height="720" loading="lazy">
+    </a>
+    <div class="project-body">
+      <div class="project-kicker">Agentic Product Engineer · Aug 2026 — Present</div>
+      <h3 class="project-name">Delphi</h3>
+      <p class="project-desc">A structured platform for exploring Nigeria's tech ecosystem, connecting companies, investors, funding rounds, and the people behind them.</p>
+      <p class="project-desc">I independently designed, built, and deployed Delphi through agentic product engineering. My work spans application architecture, searchable directories, data curation and validation, and the editorial workflows that keep information organised and current.</p>
+      <div class="project-metrics">
+        <div class="pm"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 12h4" />
+  <path d="M10 8h4" />
+  <path d="M14 21v-3a2 2 0 0 0-4 0v3" />
+  <path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" />
+  <path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" /></svg><b>530+</b><span>Companies</span></div>
+        <div class="pm"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 7h6v6" />
+  <path d="m22 7-8.5 8.5-5-5L2 17" /></svg><b>500+</b><span>Investors</span></div>
+        <div class="pm"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2" />
+  <circle cx="12" cy="12" r="2" />
+  <path d="M6 12h.01M18 12h.01" /></svg><b>420+</b><span>Funding rounds</span></div>
+        <div class="pm"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+  <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+  <circle cx="9" cy="7" r="4" /></svg><b>730+</b><span>People</span></div>
+      </div>
+      <div class="chip-row">
+        <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/></svg>Next.js</span>
+        <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg>TypeScript</span>
+        <span class="chip">Payload CMS</span>
+        <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5594 14.7228a.5269.5269 0 0 0-.0563-.1191c-.139-.2632-.4768-.3418-1.0074-.2321-1.6533.3411-2.2935.1312-2.5256-.0191 1.342-2.0482 2.445-4.522 3.0411-6.8297.2714-1.0507.7982-3.5237.1222-4.7316a1.5641 1.5641 0 0 0-.1509-.235C21.6931.9086 19.8007.0248 17.5099.0005c-1.4947-.0158-2.7705.3461-3.1161.4794a9.449 9.449 0 0 0-.5159-.0816 8.044 8.044 0 0 0-1.3114-.1278c-1.1822-.0184-2.2038.2642-3.0498.8406-.8573-.3211-4.7888-1.645-7.2219.0788C.9359 2.1526.3086 3.8733.4302 6.3043c.0409.818.5069 3.334 1.2423 5.7436.4598 1.5065.9387 2.7019 1.4334 3.582.553.9942 1.1259 1.5933 1.7143 1.7895.4474.1491 1.1327.1441 1.8581-.7279.8012-.9635 1.5903-1.8258 1.9446-2.2069.4351.2355.9064.3625 1.39.3772a.0569.0569 0 0 0 .0004.0041 11.0312 11.0312 0 0 0-.2472.3054c-.3389.4302-.4094.5197-1.5002.7443-.3102.064-1.1344.2339-1.1464.8115-.0025.1224.0329.2309.0919.3268.2269.4231.9216.6097 1.015.6331 1.3345.3335 2.5044.092 3.3714-.6787-.017 2.231.0775 4.4174.3454 5.0874.2212.5529.7618 1.9045 2.4692 1.9043.2505 0 .5263-.0291.8296-.0941 1.7819-.3821 2.5557-1.1696 2.855-2.9059.1503-.8707.4016-2.8753.5388-4.1012.0169-.0703.0357-.1207.057-.1362.0007-.0005.0697-.0471.4272.0307a.3673.3673 0 0 0 .0443.0068l.2539.0223.0149.001c.8468.0384 1.9114-.1426 2.5312-.4308.6438-.2988 1.8057-1.0323 1.5951-1.6698zM2.371 11.8765c-.7435-2.4358-1.1779-4.8851-1.2123-5.5719-.1086-2.1714.4171-3.6829 1.5623-4.4927 1.8367-1.2986 4.8398-.5408 6.108-.13-.0032.0032-.0066.0061-.0098.0094-2.0238 2.044-1.9758 5.536-1.9708 5.7495-.0002.0823.0066.1989.0162.3593.0348.5873.0996 1.6804-.0735 2.9184-.1609 1.1504.1937 2.2764.9728 3.0892.0806.0841.1648.1631.2518.2374-.3468.3714-1.1004 1.1926-1.9025 2.1576-.5677.6825-.9597.5517-1.0886.5087-.3919-.1307-.813-.5871-1.2381-1.3223-.4796-.839-.9635-2.0317-1.4155-3.5126zm6.0072 5.0871c-.1711-.0428-.3271-.1132-.4322-.1772.0889-.0394.2374-.0902.4833-.1409 1.2833-.2641 1.4815-.4506 1.9143-1.0002.0992-.126.2116-.2687.3673-.4426a.3549.3549 0 0 0 .0737-.1298c.1708-.1513.2724-.1099.4369-.0417.156.0646.3078.26.3695.4752.0291.1016.0619.2945-.0452.4444-.9043 1.2658-2.2216 1.2494-3.1676 1.0128zm2.094-3.988-.0525.141c-.133.3566-.2567.6881-.3334 1.003-.6674-.0021-1.3168-.2872-1.8105-.8024-.6279-.6551-.9131-1.5664-.7825-2.5004.1828-1.3079.1153-2.4468.079-3.0586-.005-.0857-.0095-.1607-.0122-.2199.2957-.2621 1.6659-.9962 2.6429-.7724.4459.1022.7176.4057.8305.928.5846 2.7038.0774 3.8307-.3302 4.7363-.084.1866-.1633.3629-.2311.5454zm7.3637 4.5725c-.0169.1768-.0358.376-.0618.5959l-.146.4383a.3547.3547 0 0 0-.0182.1077c-.0059.4747-.054.6489-.115.8693-.0634.2292-.1353.4891-.1794 1.0575-.11 1.4143-.8782 2.2267-2.4172 2.5565-1.5155.3251-1.7843-.4968-2.0212-1.2217a6.5824 6.5824 0 0 0-.0769-.2266c-.2154-.5858-.1911-1.4119-.1574-2.5551.0165-.5612-.0249-1.9013-.3302-2.6462.0044-.2932.0106-.5909.019-.8918a.3529.3529 0 0 0-.0153-.1126 1.4927 1.4927 0 0 0-.0439-.208c-.1226-.4283-.4213-.7866-.7797-.9351-.1424-.059-.4038-.1672-.7178-.0869.067-.276.1831-.5875.309-.9249l.0529-.142c.0595-.16.134-.3257.213-.5012.4265-.9476 1.0106-2.2453.3766-5.1772-.2374-1.0981-1.0304-1.6343-2.2324-1.5098-.7207.0746-1.3799.3654-1.7088.5321a5.6716 5.6716 0 0 0-.1958.1041c.0918-1.1064.4386-3.1741 1.7357-4.4823a4.0306 4.0306 0 0 1 .3033-.276.3532.3532 0 0 0 .1447-.0644c.7524-.5706 1.6945-.8506 2.802-.8325.4091.0067.8017.0339 1.1742.081 1.939.3544 3.2439 1.4468 4.0359 2.3827.8143.9623 1.2552 1.9315 1.4312 2.4543-1.3232-.1346-2.2234.1268-2.6797.779-.9926 1.4189.543 4.1729 1.2811 5.4964.1353.2426.2522.4522.2889.5413.2403.5825.5515.9713.7787 1.2552.0696.087.1372.1714.1885.245-.4008.1155-1.1208.3825-1.0552 1.717-.0123.1563-.0423.4469-.0834.8148-.0461.2077-.0702.4603-.0994.7662zm.8905-1.6211c-.0405-.8316.2691-.9185.5967-1.0105a2.8566 2.8566 0 0 0 .135-.0406 1.202 1.202 0 0 0 .1342.103c.5703.3765 1.5823.4213 3.0068.1344-.2016.1769-.5189.3994-.9533.6011-.4098.1903-1.0957.333-1.7473.3636-.7197.0336-1.0859-.0807-1.1721-.151zm.5695-9.2712c-.0059.3508-.0542.6692-.1054 1.0017-.055.3576-.112.7274-.1264 1.1762-.0142.4368.0404.8909.0932 1.3301.1066.887.216 1.8003-.2075 2.7014a3.5272 3.5272 0 0 1-.1876-.3856c-.0527-.1276-.1669-.3326-.3251-.6162-.6156-1.1041-2.0574-3.6896-1.3193-4.7446.3795-.5427 1.3408-.5661 2.1781-.463zm.2284 7.0137a12.3762 12.3762 0 0 0-.0853-.1074l-.0355-.0444c.7262-1.1995.5842-2.3862.4578-3.4385-.0519-.4318-.1009-.8396-.0885-1.2226.0129-.4061.0666-.7543.1185-1.0911.0639-.415.1288-.8443.1109-1.3505.0134-.0531.0188-.1158.0118-.1902-.0457-.4855-.5999-1.938-1.7294-3.253-.6076-.7073-1.4896-1.4972-2.6889-2.0395.5251-.1066 1.2328-.2035 2.0244-.1859 2.0515.0456 3.6746.8135 4.8242 2.2824a.908.908 0 0 1 .0667.1002c.7231 1.3556-.2762 6.2751-2.9867 10.5405zm-8.8166-6.1162c-.025.1794-.3089.4225-.6211.4225a.5821.5821 0 0 1-.0809-.0056c-.1873-.026-.3765-.144-.5059-.3156-.0458-.0605-.1203-.178-.1055-.2844.0055-.0401.0261-.0985.0925-.1488.1182-.0894.3518-.1226.6096-.0867.3163.0441.6426.1938.6113.4186zm7.9305-.4114c.0111.0792-.049.201-.1531.3102-.0683.0717-.212.1961-.4079.2232a.5456.5456 0 0 1-.075.0052c-.2935 0-.5414-.2344-.5607-.3717-.024-.1765.2641-.3106.5611-.352.297-.0414.6111.0088.6356.1851z"/></svg>PostgreSQL</span>
+        <span class="chip"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 1.608 12 20.784H0Z"/></svg>Vercel</span>
+      </div>
+      <a href="https://delphiatlas.com" target="_blank" rel="noopener" class="btn btn-primary project-cta">Explore Delphi <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" />
+  <path d="M7 17 17 7" /></svg></a>
+    </div>
+  </article>
+
+  <h3 class="sub-head reveal">After hours</h3>
+  <p class="sub-head-note reveal">When the laptop closes, the decks open.</p>
+
+  <div class="dj-card reveal d1">
+    <div class="vinyl-wrap" aria-hidden="true">
+      <div class="vinyl">
+        <div class="vinyl-label"><b>SORA</b><span>On Deck</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="dj-kicker">DJ · Event Founder · Since 2024</div>
+      <div class="dj-name">Sora <em>— behind the decks</em></div>
+      <p class="dj-desc">DJ and events entrepreneur in Lagos, spinning house-driven sets and building the rooms they're played in, from co-founded event brands to residencies and guest slots across the city's scene.</p>
+      <div class="genre-row">
+        <span class="genre-chip">House</span>
+        <span class="genre-chip">EDM</span>
+        <span class="genre-chip">Afro-House</span>
+        <span class="genre-chip">Afro Tech</span>
+        <span class="genre-chip">GQOM</span>
+      </div>
+      <div class="dj-events">
+        <b>Co-founded:</b> <span class="ev">Collision · Sage's House · Justice for January Babies</span><br>
+        <b>Resident DJ:</b> <span class="ev">TSL</span><br>
+        <b>Also played:</b> <span class="ev">Catching Waves · TMC (Till Mama Calls) · Tripple G · Zen House · All Black Party 2.0 · ECHO · MLT (Moments Like This)</span>
+      </div>
+      <div class="dj-stats">
+        <div><b>15+</b><span>Events DJed</span></div>
+        <div><b>10</b><span>Events Organised</span></div>
+        <div><b>3</b><span>Events Co-founded</span></div>
+        <div><b>1000+</b><span>Attendees</span></div>
+        <div><b>NGN 10M+</b><span>Event Revenue</span></div>
+        <div><b>8</b><span>Venue Partners</span></div>
+        <div><b>5</b><span>Sponsors</span></div>
+        <div><b>2024</b><span>Journey Began</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="interest-grid">
+    <div class="interest-card reveal d1">
+      <span class="interest-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" />
+  <path d="M7 3v18" />
+  <path d="M3 7.5h4" />
+  <path d="M3 12h18" />
+  <path d="M3 16.5h4" />
+  <path d="M17 3v18" />
+  <path d="M17 7.5h4" />
+  <path d="M17 16.5h4" /></svg></span>
+      <h4>Film &amp; Series Obsessive</h4>
+      <p>1000+ movies and TV series watched, and counting.</p>
+      <div class="mini-chips">
+        <span>Sci-Fi</span><span>Fantasy</span><span>Adventure</span><span>Spy</span><span>Thriller</span><span>Horror</span><span>Drama</span><span>Anime</span><span>Animation</span>
+      </div>
+    </div>
+    <div class="interest-card reveal d2">
+      <span class="interest-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z" />
+  <path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18" />
+  <path d="m2.3 2.3 7.286 7.286" />
+  <circle cx="11" cy="11" r="2" /></svg></span>
+      <h4>Writing</h4>
+      <p>Putting ideas on paper, from long-form thinking to sharp, structured storytelling.</p>
+      <div class="mini-chips"><span>Journaling</span><span>Ideas</span><span>Opinions</span><span>Philosophy</span></div>
+    </div>
+    <div class="interest-card reveal d3">
+      <span class="interest-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+  <path d="M2 12h20" /></svg></span>
+      <h4>Geopolitics</h4>
+      <p>Following the forces that shape markets, policy, and power across the world.</p>
+      <div class="mini-chips"><span>Imperialism</span><span>Neocolonialism</span><span>Human Rights</span><span>Culture &amp; Traditions</span></div>
+    </div>
+    <div class="interest-card reveal d1">
+      <span class="interest-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" /></svg></span>
+      <h4>Startups, Business &amp; Strategy</h4>
+      <p>Fascinated by how ventures are built, scaled, and steered, on paper and in practice.</p>
+      <div class="mini-chips"><span>SaaS</span><span>VC</span><span>Mergers &amp; Acquisitions</span><span>GTM</span></div>
+    </div>
+    <div class="interest-card reveal d2">
+      <span class="interest-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+  <path d="M9 18h6" />
+  <path d="M10 22h4" /></svg></span>
+      <h4>Technology &amp; Innovation</h4>
+      <p>Tracking what's next, and how new tools reshape industries and everyday life.</p>
+      <div class="mini-chips"><span>AI</span><span>Emerging Tech</span><span>Software Development</span><span>Science</span></div>
+    </div>
+    <div class="interest-card reveal d3">
+      <span class="interest-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z" />
+  <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+  <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+  <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+  <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /></svg></span>
+      <h4>Creative Direction</h4>
+      <p>Shaping the look, feel, and story of experiences, from event brands to visual identity.</p>
+      <div class="mini-chips"><span>Music Production</span><span>Ideation</span><span>Event Organising</span><span>Set Production</span><span>Sound</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="contact-card reveal">
+    <div class="eyebrow">05 — Contact</div>
+    <h2>Let's build <em>what's next.</em></h2>
+    <p>Interested in working together on a technology programme, a digital product, or an AI-assisted build? Let's talk.</p>
+    <div class="contact-links">
+      <a href="mailto:him@tobiarogunmati.com" class="btn btn-primary"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+  <rect x="2" y="4" width="20" height="16" rx="2" /></svg> Email Me</a>
+      <a href="https://www.linkedin.com/in/tobiarogunmati/" target="_blank" rel="noopener" class="btn btn-ghost"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
+    </div>
+    <div class="contact-meta">
+      <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg> Lagos, Nigeria</span>
+      <a href="mailto:him@tobiarogunmati.com"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+  <rect x="2" y="4" width="20" height="16" rx="2" /></svg> him@tobiarogunmati.com</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<button id="toTop" aria-label="Back to top"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7" />
+  <path d="M12 19V5" /></svg></button>
+
+<footer>© 2026 Tobi Arogunmati · Designed with warmth in Lagos</footer>
+
+<!-- Analytics: Cloudflare Web Analytics (cookieless, no consent banner needed).
+     Add your beacon token from the Cloudflare dashboard, then uncomment:
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"YOUR_TOKEN"}'></script>
+-->
+
+<script>
+(function(){
+  'use strict';
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Loading screen ---------- */
+  window.addEventListener('load',function(){
+    setTimeout(function(){document.getElementById('loader').classList.add('hidden');},900);
+  });
+  setTimeout(function(){document.getElementById('loader').classList.add('hidden');},3500);
+
+  /* ---------- Floating particles ---------- */
+  var pWrap=document.getElementById('particles');
+  if(!reduced){
+    var count=window.innerWidth<700?12:24;
+    for(var i=0;i<count;i++){
+      var p=document.createElement('div');
+      p.className='particle';
+      var size=Math.random()*5+2;
+      p.style.width=size+'px';p.style.height=size+'px';
+      p.style.left=Math.random()*100+'vw';
+      p.style.top=(60+Math.random()*50)+'vh';
+      p.style.setProperty('--po',(Math.random()*0.35+0.2).toFixed(2));
+      p.style.setProperty('--drift',(Math.random()*80-40).toFixed(0)+'px');
+      p.style.animationDuration=(Math.random()*22+16)+'s';
+      p.style.animationDelay=(-Math.random()*30)+'s';
+      pWrap.appendChild(p);
+    }
+  }
+
+  /* ---------- Nav: scrolled state + back-to-top ---------- */
+  var nav=document.getElementById('nav');
+  var toTop=document.getElementById('toTop');
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY;
+    nav.classList.toggle('scrolled',y>30);
+    toTop.classList.toggle('show',y>600);
+  },{passive:true});
+  toTop.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});
+  });
+
+  /* ---------- Mobile menu ---------- */
+  var btn=document.getElementById('menuBtn');
+  var links=document.getElementById('navLinks');
+  function setMenu(open){
+    btn.classList.toggle('open',open);
+    links.classList.toggle('open',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  }
+  btn.addEventListener('click',function(){setMenu(!btn.classList.contains('open'));});
+  links.addEventListener('click',function(e){if(e.target.closest('a')){setMenu(false);}});
+
+  /* ---------- Scroll reveal ---------- */
+  var revealObserver=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target);}
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){revealObserver.observe(el);});
+
+  /* ---------- Skill bars: animate on view (transform) ---------- */
+  var barObserver=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var fill=entry.target;
+        requestAnimationFrame(function(){fill.style.transform='scaleX(1)';});
+        barObserver.unobserve(fill);
+      }
+    });
+  },{threshold:0.4});
+  document.querySelectorAll('.bar-fill').forEach(function(el){barObserver.observe(el);});
+
+  /* ---------- Scrollspy: active nav link ---------- */
+  var navMap={};
+  document.querySelectorAll('.nav-links a[href^="#"]').forEach(function(a){
+    var id=a.getAttribute('href').slice(1);
+    if(!navMap[id])navMap[id]=a;
+  });
+  var sections=['about','experience','skills','passions','contact']
+    .map(function(id){return document.getElementById(id);})
+    .filter(Boolean);
+  var spy=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        Object.keys(navMap).forEach(function(k){navMap[k].classList.remove('active');});
+        var a=navMap[entry.target.id];
+        if(a)a.classList.add('active');
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  sections.forEach(function(s){spy.observe(s);});
+
+  /* ---------- Smooth scroll with nav offset ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var href=a.getAttribute('href');
+      if(href==='#'||href==='#main')return;
+      var target=document.querySelector(href);
+      if(target){
+        e.preventDefault();
+        var y=target.getBoundingClientRect().top+window.scrollY-70;
+        window.scrollTo({top:y,behavior:reduced?'auto':'smooth'});
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
